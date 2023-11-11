@@ -8,11 +8,53 @@
 
         <!-- =====BOX ICONS===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
         <title>Portfolio - Fazeel Asghar</title>
+        <style>
+            @media screen and (max-width:750px) {
+                .home {
+                height: 100vh;
+                z-index: -1;
+                }
+                .home__social{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: -400px;
+                    margin-left: 100px;
+                }   
+                .home__title{
+                    margin-left: -170px;
+                }
+                .home__img{
+                    margin-bottom: -210px;
+                    margin-right: -90px;
+                }
+            }
+            @media screen and (max-width:950px) {
+                .home {
+                height: 100vh;
+                z-index: -1;
+                }
+                .home__social{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: -600px;
+                    margin-left: 100px;
+                }   
+                .home__title{
+                    margin-top: -100px;
+                    margin-left: -170px;
+                }
+                .home__img{
+                    margin-top: -100px;
+                    margin-bottom: -210px;
+                    margin-right: -90px;
+                }
+            }
+        </style>
     </head>
     <body>
-        <!--===== HEADER =====-->
+
+    <!--===== HEADER =====-->
         <header class="l-header">
             <nav class="nav bd-grid">
                 <div>
@@ -27,7 +69,6 @@
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                       
                     </ul>
                 </div>
 
@@ -40,8 +81,8 @@
         </header>
 
         <main class="l-main">
+            
             <!--===== HOME =====-->
-
             <section class="home bd-grid" id="home">
                 <div class="nav__contact">
                     <div class="home__social">
