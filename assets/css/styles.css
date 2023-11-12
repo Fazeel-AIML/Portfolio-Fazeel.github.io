@@ -231,10 +231,12 @@ img {
 }
 
 .home__img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 460px;
+  display: flex;
+  flex-direction: row;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
 }
 
 .home__blob {
