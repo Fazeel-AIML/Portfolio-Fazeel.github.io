@@ -36,22 +36,25 @@
         }
         @media screen and (max-width:950px) {
             .home {
-            height: 100vh;
+            height: 80vh;
             z-index: -1;
+            display:flex;
+            flex-direction: column;
+
             }
             .flex-row{
                 display: flex;
                 flex-direction: column;
-                padding:100px;
+                padding: 10px;
             }
             .home__social{
                 display: flex;
                 flex-direction: row;
-                margin-top: -400px;
-                margin-left: 100px;
+                margin-top: -50px;
+                margin-left: 50px;
             }   
             .home__title{
-                margin-left: -170px;
+                margin-left: -30px;
             }
         }
         </style>
@@ -87,6 +90,7 @@
         <main class="l-main">
             
             <!--===== HOME =====-->
+            <div class="flex-row"></div>
             <section class="home bd-grid" id="home">
                 <div class="nav__contact">
                     <div class="home__social">
