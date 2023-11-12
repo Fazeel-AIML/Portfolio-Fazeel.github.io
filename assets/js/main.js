@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (lengthToType < currentTitle.length) {
             requestAnimationFrame(typeTitle);
         } else {
-            setTimeout(replaceTitle, 1000);
+            setTimeout(replaceTitle, 2000);
         }
     }
 
