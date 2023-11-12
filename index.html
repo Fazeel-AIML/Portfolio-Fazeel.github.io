@@ -33,6 +33,7 @@
             display: flex;
             flex-direction: row;
             padding: 10px;
+            justify-content: space-between;
         }
         @media screen and (max-width:950px) {
             .home {
@@ -56,6 +57,39 @@
             .home__title{
                 margin-left: 20px;
             }
+            .work__description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.work__img:hover .work__description {
+  opacity: 1;
+}
+
+.work__img {
+  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.work__img img {
+  transition: 1s;
+}
+
+.work__img img:hover {
+  transform: scale(1.1);
+}
         }
         </style>
     </head>
@@ -99,7 +133,8 @@
                         <a href="https://github.com/fazeel40" target="_blank" class="home__social-icon"><i class='bx bxl-github' ></i></a>
                     </div>
                 </div>
-                <div class="flex-row">
+            <div class="flex-row">
+            <div class="space"></div>
                 <div class="home__data">
                     <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Fazeel.</span><br>  <div class="title-container"><span class="job-title">AI Engineer</span></h1>
                 </div>
@@ -114,6 +149,8 @@
                         </g>
                     </svg>
                 </div>
+                </div>
+
             </div>
             </section>
             <hr>
