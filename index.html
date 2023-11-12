@@ -30,6 +30,7 @@
         background: #14025a;
         }
         .flex-row{
+
             display: flex;
             flex-direction: row;
         }
@@ -47,13 +48,16 @@
             .home__title{
                 margin-left: -170px;
             }
-            .home__img{
-                position: relative;
-                margin-bottom: -10px;
-                left: 20px;
-                top: -100px;
+        }
+        @media screen and (max-width:1600px) {
+                    .home__img {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 460px;
             }
         }
+
         </style>
     </head>
     <body>
