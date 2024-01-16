@@ -40,100 +40,72 @@
             position: relative;
             right: 10px;
         }
-        @media screen and (max-width:950px) {
-            .home {
-            width: 100%;
-            height: 80vh;
+        @media screen and (max-width: 950px) {
+            /* Adjust the layout for screens with a maximum width of 950 pixels */
+
+            /* Updated styles for the work section to create a 2x2 grid */
+            .work__container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .work__img {
+                width: 100%; /* Occupy the full width of the grid cell */
+            }
+
+            .work__img img {
+                width: 100%; /* Make sure the image takes up the full width of the container */
+                object-fit: cover;
+                object-position: center bottom; /* Align to the bottom of the container */
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .work__description {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.7);
+                color: #fff;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .home{ width: 100%;
+            height: 90vh;
             z-index: -1;
             display:flex;
-            flex-direction: column;
+            flex-direction: column;}
 
+            .work__img:hover .work__description {
+                opacity: 1;
             }
             .flex-row{
                 display: flex;
                 flex-direction: column;
-                padding: 0px;
             }
-            .home__social{
-                display: flex;
-                flex-direction: row;
-                margin-top: -50px;
-                margin-left: 5px;
-            }   
-            .home__title{
-                font-size: 30px;
-                margin-left: 10px;
-            }
-            .home__img{
-                width: 50%;
+            /* Additional styles for the home section to maintain previous styling */
+            .home__img {
+                width: 80%;
                 margin: 0 auto;
                 border: 1px solid black;
             }
 
-            .work__description {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+            .home__title {
+                font-size: 30px;
+                margin-left: 10px;
+            }
 
-.work__img:hover .work__description {
-  opacity: 1;
-}
-/* Modified styles for work section */
-/* Updated styles for work section */
-.work__container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .work__img {
-            width: calc(33.3333% - 20px);
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .work__img img {
-            width: 100%;
-
-            object-fit: cover;
-            object-position: center bottom; /* Align to the bottom of the container */
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .work__img:hover img {
-            transform: scale(1.1);
-        }
-
-        .work__description {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .work__img:hover .work__description {
-            opacity: 1;
-        }
+            .home__social {
+                display: flex;
+                flex-direction: row;
+                margin-top: -50px;
+                margin-left: 5px;
+            }
     }
         </style>
     </head>
@@ -156,7 +128,6 @@
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-menu'></i>
                 </div>
