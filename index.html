@@ -10,8 +10,8 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
         <title>Portfolio - Fazeel Asghar</title>
         <style>
-            body{
-                overflow-x: hidden;
+            *{
+                margin: 0pc;
             }
             /* width */
         ::-webkit-scrollbar {
@@ -39,6 +39,10 @@
             justify-content: space-between;
             position: relative;
             right: 10px;
+        }
+        .nav__logo {
+            width: 150px; /* Set the desired width */
+            margin-right: 150px; /* Adjust margin as needed */
         }
         @media screen and (max-width: 950px) {
             /* Adjust the layout for screens with a maximum width of 950 pixels */
@@ -90,14 +94,14 @@
             }
             /* Additional styles for the home section to maintain previous styling */
             .home__img {
-                width: 80%;
+                width: 60%;
                 margin: 0 auto;
                 border: 1px solid black;
             }
 
             .home__title {
                 font-size: 30px;
-                margin-left: 10px;
+                margin: 0px;
             }
 
             .home__social {
@@ -106,6 +110,10 @@
                 margin-top: -50px;
                 margin-left: 5px;
             }
+            .nav__logo {
+            width: 80px; /* Set the desired width */
+            margin-right: 150px; /* Adjust margin as needed */
+        }     
     }
         </style>
     </head>
@@ -115,7 +123,9 @@
         <header class="l-header">
             <nav class="nav bd-grid">
                 <div>
-                    <a href="index.html" class="nav__logo">Fazeel</a>
+                    <a href="index.html">
+                    <img href="index.html" class="nav__logo" src="assets\img\Logo.png" alt="Fazeel">
+                </a>
                 </div>
 
                 <div class="nav__menu" id="nav-menu">
