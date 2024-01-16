@@ -10,6 +10,9 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
         <title>Portfolio - Fazeel Asghar</title>
         <style>
+            body{
+                overflow-x: hidden;
+            }
             /* width */
         ::-webkit-scrollbar {
         width: 10px;
@@ -34,10 +37,13 @@
             flex-direction: row;
             padding: 10px;
             justify-content: space-between;
+            position: relative;
+            right: 10px;
         }
         @media screen and (max-width:950px) {
             .home {
-            height: 100vh;
+            width: 100%;
+            height: 80vh;
             z-index: -1;
             display:flex;
             flex-direction: column;
@@ -52,11 +58,18 @@
                 display: flex;
                 flex-direction: row;
                 margin-top: -50px;
-                margin-left: 20px;
+                margin-left: 5px;
             }   
             .home__title{
-                margin-left: 20px;
+                font-size: 30px;
+                margin-left: 10px;
             }
+            .home__img{
+                width: 50%;
+                margin: 0 auto;
+                border: 1px solid black;
+            }
+
             .work__description {
   position: absolute;
   top: 0;
@@ -76,21 +89,52 @@
 .work__img:hover .work__description {
   opacity: 1;
 }
-
-.work__img {
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
-  border-radius: .5rem;
-  overflow: hidden;
-}
-
-.work__img img {
-  transition: 1s;
-}
-
-.work__img img:hover {
-  transform: scale(1.1);
-}
+/* Modified styles for work section */
+/* Updated styles for work section */
+.work__container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
+
+        .work__img {
+            width: calc(33.3333% - 20px);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work__img img {
+            width: 100%;
+
+            object-fit: cover;
+            object-position: center bottom; /* Align to the bottom of the container */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .work__img:hover img {
+            transform: scale(1.1);
+        }
+
+        .work__description {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .work__img:hover .work__description {
+            opacity: 1;
+        }
+    }
         </style>
     </head>
     <body>
@@ -309,31 +353,42 @@
                 <h2 class="section-title">Work</h2>
             
                 <div class="work__container bd-grid">
-                    <div class="work__img" data-description="Project 1 Description">
-                        <img src="assets/img/work1.jpg" alt="">
+                    <div class="work__img" data-description="Voice Assistant">
+                        <img src="assets/img/work1.jpeg" alt="">
                         <div class="work__description">Project 1</div>
                     </div>
-                    <div class="work__img" data-description="Project 2 Description">
-                            <img src="assets/img/work2.jpg" alt="">
+                    <div class="work__img" data-description="Obstacle Detection Car with Arduino">
+                            <img src="assets/img/work3.jpg" alt="">
                             <div class="work__description">Project 2</div>
                     </div>
-                    <div class="work__img" data-description="Project 3 Description">
-                            <img src="assets/img/work3.jpg" alt="">
+                    <div class="work__img" data-description="Tumour Detection with CV">
+                            <img src="assets\img\tumour.png" alt="">
                             <div class="work__description">Project 3</div>
                     </div>
 
-                    <div class="work__img" data-description="Project 4 Description">
+                    <div class="work__img" data-description="Face Mesh And Smile Detection">
+                                    <img src="assets\img\facemesh.jpeg" alt="">
+                                    <div class="work__description">Project 4</div>
+                    </div>
+                    <div class="work__img" data-description="Time Series ML Projects">
                                     <img src="assets/img/work4.jpg" alt="">
                                     <div class="work__description">Project 4</div>
                     </div>
-
-                    <div class="work__img" data-description="Project 5 Description">
+                    <div class="work__img" data-description="ML Sentiment Detection">
+                                    <img src="assets\img\ml_senti.jpg" alt="">
+                                    <div class="work__description">Project 4</div>
+                    </div>
+                    <div class="work__img" data-description="Skin Cancer Classification">
+                                    <img src="assets\img\skin.webp" alt="">
+                                    <div class="work__description">Project 4</div>
+                    </div>
+                    <div class="work__img" data-description="Text Generator with OpenAi">
                         <img src="assets/img/work5.jpg" alt="">
                         <div class="work__description">Project 5</div>
                     </div>
 
-                    <div class="work__img" data-description="Project 5 Description">
-                        <img src="assets/img/work6.jpg" alt="">
+                    <div class="work__img" data-description="Email Sender with Python">
+                        <img src="assets\img\Email.png" alt="">
                         <div class="work__description">Project 5</div>
                     </div>
                 </div>

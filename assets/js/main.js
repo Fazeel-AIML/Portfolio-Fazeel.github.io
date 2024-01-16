@@ -60,7 +60,7 @@ sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200});
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const titles = ["AI Engineer", "ML and DL Scientist", "IoT Developer", "CV Developer"];
+    const titles = ["AI Engineer", "ML and DL Scientist", "IoT Developer", "CV Developer","Software Engineer"];
     const titleElement = document.querySelector(".home__title .job-title");
     let titleIndex = 0;
 
