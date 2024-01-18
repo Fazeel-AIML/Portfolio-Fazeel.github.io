@@ -104,19 +104,27 @@
             .flex-row{
                 display: flex;
                 flex-direction: column;
-                padding: 20px;
             }
             /* Additional styles for the home section to maintain previous styling */
             .home__img {
                 width: 50%;
                 margin-left: 230px;
-                margin-top: 100px;
+                padding: 20px;
             }
 
             .home__title {
-                font-size: 30px;
-                margin-left: 300px;
-            }
+            font-size: 30px;
+            margin-top: -40px;
+            margin-left: 330px; /* Remove the specific margin for mobile */
+            text-align:center; /* Add text justification */
+        }
+
+        .title__container {
+            text-align: center; /* Center the text */
+        }
+        .job-title{
+            text-align: justify;
+        }
 
             .home__social {
                 display: flex;
@@ -127,7 +135,7 @@
             .nav__logo {
             width: 80px; /* Set the desired width */
             margin-right: 150px; /* Adjust margin as needed */
-        }     
+        }    
          /* width */
          ::-webkit-scrollbar {
         width: 10px;
