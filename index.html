@@ -59,7 +59,9 @@
         }
         @media screen and (max-width: 950px) {
             /* Adjust the layout for screens with a maximum width of 950 pixels */
-
+                body{
+                    margin: 0px;
+                }
             /* Updated styles for the work section to create a 2x2 grid */
             .work__container {
                 display: grid;
@@ -93,7 +95,7 @@
                 transition: opacity 0.3s;
             }
             .home{ width: 100%;
-            height: 90vh;
+            height: 80vh;
             z-index: -1;
             display:flex;
             flex-direction: column;}
@@ -107,15 +109,18 @@
             }
             /* Additional styles for the home section to maintain previous styling */
             .home__img {
+                position: relative;
+                left: 120px;
                 width: 50%;
-                margin-left: 230px;
-                padding: 20px;
+                margin-left: 80px;
+                padding-top: 20px;
+                padding-bottom: 40px;
             }
 
             .home__title {
             font-size: 30px;
             margin-top: -40px;
-            margin-left: 330px; /* Remove the specific margin for mobile */
+            margin-left: 230px; /* Remove the specific margin for mobile */
             text-align:center; /* Add text justification */
         }
 
