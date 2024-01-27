@@ -57,6 +57,19 @@
         .title__container{
             position: fixed;
         }
+        .work__img {
+    width: 300px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    object-position: center bottom; /* Align to the bottom of the container */
+}
+
+.work__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom; /* Align to the bottom of the container */
+    transition: transform 0.3s ease-in-out;
+}
         @media screen and (max-width: 950px) {
             /* Adjust the layout for screens with a maximum width of 950 pixels */
                 body{
@@ -65,20 +78,27 @@
             /* Updated styles for the work section to create a 2x2 grid */
             .work__container {
                 display: grid;
+                text-align: center;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
+            .work__description{
+                font-size: 15px;
+            }
 
             .work__img {
-                width: 100%; /* Occupy the full width of the grid cell */
-            }
+    width: 160px; /* Set the desired width */
+    height: 100px; /* Set the desired height */
+    object-position: center bottom; /* Align to the bottom of the container */
+}
 
-            .work__img img {
-                width: 100%; /* Make sure the image takes up the full width of the container */
-                object-fit: cover;
-                object-position: center bottom; /* Align to the bottom of the container */
-                transition: transform 0.3s ease-in-out;
-            }
+.work__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom; /* Align to the bottom of the container */
+    transition: transform 0.3s ease-in-out;
+}
 
             .work__description {
                 position: absolute;
