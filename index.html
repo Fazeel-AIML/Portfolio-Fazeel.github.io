@@ -70,6 +70,31 @@
     object-position: center bottom; /* Align to the bottom of the container */
     transition: transform 0.3s ease-in-out;
 }
+.more-button-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .more-button {
+                cursor: pointer;
+                background-color: #25a8db;
+                color: #fff;
+                padding: 10px 100px;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            .more-button:hover {
+                background-color: #2a0ba7;
+            }
+
+            .hidden {
+                display: none;
+            }
         @media screen and (max-width: 950px) {
             /* Adjust the layout for screens with a maximum width of 950 pixels */
                 body{
@@ -87,7 +112,7 @@
             }
 
             .work__img {
-    width: 160px; /* Set the desired width */
+    width: 155px; /* Set the desired width */
     height: 100px; /* Set the desired height */
     object-position: center bottom; /* Align to the bottom of the container */
 }
@@ -160,7 +185,32 @@
             .nav__logo {
             width: 80px; /* Set the desired width */
             margin-right: 150px; /* Adjust margin as needed */
-        }    
+        }
+        .more-button-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .more-button {
+                cursor: pointer;
+                background-color: #25a8db;
+                color: #fff;
+                padding: 10px 50px;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            .more-button:hover {
+                background-color: #2a0ba7;
+            }
+
+            .hidden {
+                display: none;
+            }    
          /* width */
          ::-webkit-scrollbar {
         width: 10px;
@@ -419,25 +469,61 @@
                     </div>
                     <div class="work__img" data-description="Time Series ML Projects">
                                     <img src="assets/img/work4.jpg" alt="">
-                                    <div class="work__description">Project 4</div>
+                                    <div class="work__description">Project 5</div>
                     </div>
                     <div class="work__img" data-description="ML Sentiment Detection">
                                     <img src="assets\img\ml_senti.jpg" alt="">
-                                    <div class="work__description">Project 4</div>
+                                    <div class="work__description">Project 6</div>
                     </div>
                     <div class="work__img" data-description="Skin Cancer Classification">
                                     <img src="assets\img\skin.webp" alt="">
-                                    <div class="work__description">Project 4</div>
+                                    <div class="work__description">Project 7</div>
                     </div>
                     <div class="work__img" data-description="Text Generator with OpenAi">
                         <img src="assets/img/work5.jpg" alt="">
-                        <div class="work__description">Project 5</div>
+                        <div class="work__description">Project 8</div>
                     </div>
 
                     <div class="work__img" data-description="Email Sender with Python">
                         <img src="assets\img\Email.png" alt="">
-                        <div class="work__description">Project 5</div>
+                        <div class="work__description">Project 9</div>
                     </div>
+                <!-- Additional containers (hidden by default) -->
+                <div class="work__container hidden">
+                    <div class="work__img" data-description="Personality Prediction">
+                        <img src="assets\img\pers.jpeg" alt="">
+                        <div class="work__description">Project 10</div>
+                    </div>
+                </div>
+                <div class="work__container hidden">
+                    <div class="work__img" data-description="QR Code Ticket Generator">
+                        <img src="assets\img\qr.jpg" alt="">
+                        <div class="work__description">Project 11</div>
+                    </div>
+                </div>
+                <div class="work__container hidden">
+                    <div class="work__img" data-description="Urine Sediment Particles Detection">
+                        <img src="assets\img\Selected-samples-of-urinary-sediment-particle.png" alt="">
+                        <div class="work__description">Project 12</div>
+                    </div>
+                </div>
+                <div class="work__container hidden">
+                    <div class="work__img" data-description="Text Generation with Open Ai Api">
+                        <img src="assets\img\text.jpeg" alt="">
+                        <div class="work__description">Project 13</div>
+                    </div>
+                </div>
+                <div class="work__container hidden">
+                    <div class="work__img" data-description="Video Generation by Open Ai">
+                        <img src="assets\img\vid.jpeg" alt="">
+                        <div class="work__description">Project 14</div>
+                    </div>
+                </div>
+
+                <!-- Button for appending more containers -->
+                <div class="more-button-container">
+                    <button class="more-button" onclick="appendMore()">More</button>
+                </div>
                 </div>
             </section>
 <hr>
@@ -466,13 +552,61 @@
             </div>
             <p class="footer__copy">&#169; codewithfazeel. All rigths reserved</p>
         </footer>
-
-
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
         <!--===== MAIN JS =====-->
         <script src="assets/js/main.js"></script>
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+
+<script>
+    let clickCount = 0;
+    const totalHiddenContainers = document.querySelectorAll('.work__container.hidden').length;
+
+    function appendMore() {
+        const hiddenContainers = document.querySelectorAll('.work__container.hidden');
+
+        hiddenContainers.forEach(container => {
+            container.classList.remove('hidden');
+        });
+
+        clickCount++;
+
+        if (clickCount === 2) {
+            let popupWidth = '80%'; // Adjust the width as needed
+
+            // Adjust width for smaller screens
+            if (window.innerWidth <= 600) {
+                popupWidth = '90%';
+            }
+
+            Swal.fire({
+                title: "You've reached the end!",
+                icon: 'success',
+                confirmButtonColor: '#2a0ba7',
+                width: popupWidth, // Set the width
+                customClass: {
+                    popup: 'custom-popup-class' // Add a custom class for further styling
+                }
+            });
+
+            // Reset clickCount to 0
+            clickCount = 0;
+        }
+    }
+</script>
+
+<style>
+    /* Add your custom styles for smaller screens here */
+    @media screen and (max-width: 600px) {
+        .custom-popup-class {
+            /* Add custom styles for smaller screens */
+        }
+    }
+</style>
     </body>
 </html>
