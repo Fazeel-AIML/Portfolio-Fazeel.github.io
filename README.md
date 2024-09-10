@@ -30,11 +30,11 @@ Implemented FaceMesh using MediaPipe to analyze facial features.
 
 ## Skills
 
-- **Programming Languages:** Python, JavaScript
+- **Programming Languages:** Python, C++
 - **Machine Learning & Deep Learning:** TensorFlow, CNN
-- **Web Development:** HTML5, CSS3, React, Redux, Django
-- **Computer Vision:** MediaPipe, OpenCV
-- **IoT Technologies:** Arduino
+- **Web Development:** HTML5, CSS3, Django
+- **Computer Vision:** MediaPipe, OpenCV, Cvzone
+- **IoT Technologies:** Arduino, Raspberry Pi
 
 ## Professional Experience
 
