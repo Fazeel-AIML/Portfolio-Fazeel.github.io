@@ -42,6 +42,6 @@ Implemented FaceMesh using MediaPipe to analyze facial features.
 
 ## Contact
 
-Feel free to connect with me on [LinkedIn](www.linkedin.com/in/fazeelaiml) or reach out via email at fazeel.asghar@example.com for any inquiries or collaborations.
+Feel free to connect with me on [LinkedIn](www.linkedin.com/in/fazeelaiml) or reach out via email at fasghar40@gmail.com for any inquiries or collaborations.
 
 Thank you for visiting my portfolio!
