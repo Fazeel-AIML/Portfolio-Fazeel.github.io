@@ -1,10 +1,10 @@
 // Object to store media files for each modal
 const modalMedia = {
-    modal1: ["assets/img/work1_vid1.mp4", "assets/img/work1.jpeg", "assets/img/work2.jpg"],
-    modal2: ["assets\img\skin_cancer.png", "assets/img/work2_vid1.mp4"],
-    modal3: ["assets/img/work3.jpeg", "assets/img/work3_vid1.mp4"],
-    modal4: ["assets/img/work4.jpeg", "assets/img/work4_vid1.mp4"],
-    modal5: ["assets/img/work5.jpeg", "assets/img/work5_vid1.mp4"],
+    modal1: ["assets/img/Vehicle_Ins.mp4" ,  "assets/img/vehicle_ins.jpg", "assets/img/work2.jpg"],
+    modal2: ["assets/img/llm.mp4","assets/img/LLM.jpg"],
+    modal3: ["assets/img/car_drive.mp4", "assets/img/work3_vid1.mp4"],
+    modal4: ["assets/img/skin_cancer.png", "assets/img/work4_vid1.mp4"],
+    modal5: ["assets/img/tumour.png", "assets/img/work5_vid1.mp4"],
     modal6: ["assets/img/work6.jpeg", "assets/img/work6_vid1.mp4"]
 };
 
@@ -37,10 +37,18 @@ function openModal(modalId) {
     showSlides(0, modalId);
 }
 
-// Function to close modal
+// Function to close modal and stop video playback
 function closeModal(modalId) {
     let modal = document.getElementById(modalId);
     if (modal) {
+        // Stop and reset all videos inside the modal
+        let videos = modal.querySelectorAll("video");
+        videos.forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+        });
+
+        // Hide the modal
         modal.style.display = "none";
     }
 }
@@ -77,12 +85,12 @@ function changeSlide(direction, modalId) {
     showSlides(currentSlides[modalId], modalId);
 }
 
-// Close modal when clicking outside
+// Close modal when clicking outside and stop videos
 window.onclick = function(event) {
     let modals = document.querySelectorAll(".modal");
     modals.forEach(modal => {
         if (event.target === modal) {
-            modal.style.display = "none";
+            closeModal(modal.id);
         }
     });
 };
