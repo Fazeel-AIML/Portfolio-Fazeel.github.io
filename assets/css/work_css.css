@@ -397,3 +397,59 @@
     to { opacity: 1; transform: scale(1); }
 }
 
+/* Responsive Dialog Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    width: 80%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 0.4s ease-in-out;
+    padding: 30px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 80%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 85%;
+        padding: 15px;
+    }
+
+    .modal-content .media-gallery {
+        width: 600px;
+        margin-left: 10px;
+    }
+    
+}
