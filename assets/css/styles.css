@@ -45,8 +45,12 @@
 html {
   scroll-behavior: smooth;
 }
+main{
+  background: linear-gradient(135deg, #1a1a1a, #222);
+}
 
 body {
+  background: linear-gradient(135deg, #1a1a1a, #222); /* Dark mode effect */
   margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
@@ -101,6 +105,10 @@ img {
 }
 
 /*===== LAYOUT =====*/
+.nav-layout{
+  max-width: 100%;
+
+}
 .bd-grid {
   max-width: 1024px;
   display: grid;
@@ -132,6 +140,9 @@ img {
   justify-content: space-between;
   align-items: center;
   font-weight: var(--font-semi);
+} 
+.nav__menu{
+  width: 100%;  
 }
 
 @media screen and (max-width: 767px) {
@@ -142,7 +153,7 @@ img {
     width: 80%;
     height: 100%;
     padding: 2rem;
-    background-color: var(--second-color);
+
     transition: .5s;
   }
 }
@@ -188,7 +199,7 @@ img {
   height: 0.18rem;
   left: 0;
   top: 2rem;
-  background-color: var(--first-color);
+
 }
 
 /*=== Show menu ===*/
@@ -231,7 +242,7 @@ img {
 }
 .home__data{
   padding-top: 40px;
-  width: 25rem;
+  width: 28rem;
   margin-top: -35px;
 }
 .home__img {
@@ -316,38 +327,84 @@ img {
   box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
 }
 /* ... */
+/* Personal Section 3D Background */
 .personal {
-  background-color: #f8f8f8;
-  padding: 80px 20px; /* Adjusted padding for smaller screens */
+  background: linear-gradient(135deg, #1a1a1a, #222); /* Dark mode effect */
+  padding: 80px 20px;
+  border-radius: 15px;
+  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.4), inset -5px -5px 15px rgba(255, 255, 255, 0.1);
 }
 
+/* Personal Container */
 .personal__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px; /* Reduced gap for smaller screens */
+  gap: 20px;
+  align-items: center;
+  perspective: 1000px;
 }
 
-.personal__img img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+/* Hover Effect for Image */
+.personal__img img:hover {
+  transform: scale(1.05);
 }
 
+/* Personal Details Card with 3D Effect */
 .personal__details {
   text-align: left;
+  background: linear-gradient(145deg, #1e1e1e, #292929);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
 }
 
+/* 3D Hover Effect */
+.personal__details:hover {
+  transform: translateY(-6px) rotateX(5deg) rotateY(3deg);
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.6), -5px -5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Personal Title with Neon Glow */
 .personal__title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
-  margin-bottom: 10px; /* Adjusted margin for smaller screens */
+  margin-bottom: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7);
 }
 
+/* Personal Text */
 .personal__text {
   font-size: 16px;
   line-height: 1.6;
-  color: #666;
+  color: #bbb;
 }
+
+/* Neon Glow Effect on Hover */
+.personal__details::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #ff00ff, #ff9900);
+  border-radius: 15px;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Stronger Glow on Hover */
+.personal__details:hover::before {
+  opacity: 1;
+  filter: blur(15px);
+}
+
 
 /* Media query for smaller screens */
 @media only screen and (max-width: 768px) {
@@ -380,36 +437,20 @@ img {
 .skills__python {
   width: 85%;
 }
-.skills__cpp {
-  width: 70%;
-}
-.skills__arduino {
-  width: 60%;
-}
-.skills__ml {
-  width: 75%;
+.skills__ml{
+  width: 85%;
 }
 .skills__cv {
   width: 80%;
 }
-
-
-
-
-.skills__html {
-  width: 95%;
-}
-
-.skills__css {
+.skills__ds {
   width: 85%;
 }
-
-.skills__js {
-  width: 65%;
+.skills__mlops {
+  width: 75%;
 }
-
-.skills__ux {
-  width: 85%;
+.skills__cloud {
+  width: 70%;
 }
 
 .skills__img {
@@ -483,7 +524,7 @@ img {
 
 /* ===== FOOTER =====*/
 .footer {
-  background-color: var(--second-color);
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #ff00ff, #ff9900);
   color: #fff;
   text-align: center;
   font-weight: var(--font-semi);
@@ -541,10 +582,13 @@ img {
     text-align: initial;
   }
   .skills__container {
-    grid-template-columns: .7fr;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid */
+    gap: 20px; /* Space between skills */
     justify-content: center;
-    column-gap: 1rem;
-  }
+    align-items: center;
+}
+
   .work__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
@@ -592,7 +636,7 @@ img {
     color: var(--second-color);
   }
   .home {
-    padding: 8rem 0 2rem;
+    padding: 9rem 0 2rem;
   }
   .about__container {
     padding-top: 2rem;
@@ -639,6 +683,7 @@ img {
   margin-right: 1rem;
 }
 .home {
+  
   display: flex;
   align-items: center;
   text-align: center;
@@ -665,4 +710,161 @@ img {
 
 .home__social-icon:hover {
   color: var(--first-color);
+}
+
+/* Unified Skills & Personal Container */
+.skills__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: center;
+  perspective: 1000px; /* Enables 3D effect */
+  background-color: #111827;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 3D Effect for Both Cards */
+.skills__data,
+.personal__details {
+  position: relative;
+  background: rgba(20, 20, 30, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  color: #141313;
+  text-shadow: 1px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 3D Hover Effect */
+.skills__data:hover,
+.personal__details:hover {
+  transform: translateY(-6px) rotateX(5deg) rotateY(3deg);
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.6), -5px -5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Glowing Neon Border */
+.skills__data::before,
+.personal__details::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #007bff, #6a11cb, #ff6a00);
+  border-radius: 15px;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Stronger Glow on Hover */
+.skills__data:hover::before,
+.personal__details:hover::before {
+  opacity: 0.8;
+  filter: blur(15px);
+}
+
+/* Skills Title Neon Glow */
+.skills__title,
+.personal__title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: black;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7);
+}
+
+/* Text Styling */
+.personal__text,
+.skills__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #bbb;
+}
+
+
+/* Home Data Container with Premium Glassmorphism */
+.home__data {
+  background: rgba(20, 20, 30, 0.55); /* Semi-transparent dark */
+  backdrop-filter: blur(15px); /* Stronger frosted glass effect */
+  border-radius: 15px;
+  padding: 3rem;
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Slight 3D Hover Effect */
+.home__data:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Home Title Styling */
+.home__title {
+  font-size: 48px; /* Bigger size */
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8);
+}
+
+/* Highlighted Name with Futuristic Glow */
+.home__title-color {
+  color: #00c6ff;
+  text-shadow: 0px 0px 30px rgba(0, 198, 255, 1);
+}
+
+/* Job Title Styling with a Glowing Neon Effect */
+.title__container {
+  display: flex;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(0, 198, 255, 0.3), rgba(255, 0, 255, 0.3));
+  border-radius: 12px;  
+  font-size: 26px; /* Bigger */
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
+  animation: fadeIn 1s ease-in-out, neonPulse 2s infinite alternate;
+}
+
+/* Neon Pulse Animation */
+@keyframes neonPulse {
+  from {
+    box-shadow: 0px 0px 10px rgba(0, 198, 255, 0.8);
+  }
+  to {
+    box-shadow: 0px 0px 20px rgba(255, 0, 255, 0.8);
+  }
+}
+
+/* Hover Effect */
+.title__container:hover {
+  background: linear-gradient(135deg, rgba(0, 198, 255, 0.6), rgba(255, 0, 255, 0.6));
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Smooth Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
