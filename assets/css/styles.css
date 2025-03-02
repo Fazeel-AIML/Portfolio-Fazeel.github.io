@@ -411,18 +411,18 @@ img {
 @media only screen and (max-width: 768px) {
   .personal__container {
     grid-template-columns: 1fr; /* Single column for smaller screens */
-    .skills__bar {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      background-color: var(--first-color);
-      height: .25rem;
-      border-radius: .5rem;
-      z-index: var(--z-back);
-    }
   }
   .home-data{
     margin-top: 100px;
+  }
+  .skills__bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--first-color);
+    height: .25rem;
+    border-radius: .5rem;
+    z-index: var(--z-back);
   }
 }
 /* ... */
