@@ -408,12 +408,18 @@ img {
 
 
 /* Media query for smaller screens */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 568px) {
   .personal__container {
     grid-template-columns: 1fr; /* Single column for smaller screens */
   }
   .home-data{
     margin-top: 100px;
+  }
+  .skills__data{
+    display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center;
   }
   .skills__bar {
     position: absolute;
