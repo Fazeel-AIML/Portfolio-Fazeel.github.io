@@ -68,9 +68,11 @@
             margin: 20px 0;
             /* Increase top and bottom margin to create space */
         }
+
         .container-fluid {
             margin-bottom: -100px;
         }
+
         .title__container {
             position: fixed;
         }
@@ -124,6 +126,9 @@
             /* Adjust the layout for screens with a maximum width of 950 pixels */
             body {
                 margin: 0px;
+            }
+            .container-fluid{
+                height: 900px;
             }
 
             /* Updated styles for the work section to create a 2x2 grid */
@@ -193,6 +198,7 @@
                 position: relative;
                 left: 100px;
                 width: 60%;
+                height: 100%;
 
                 padding-top: 20px;
                 padding-bottom: -80px;
@@ -289,6 +295,7 @@
                 background-color: #dcdcdc;
                 position: relative;
             }
+
             .container-fluid {
                 margin-bottom: -50px;
             }
@@ -420,21 +427,52 @@
                 font-size: 13px;
             }
         }
-        
-/* =============== FADED VIDEO BACKGROUND =============== */
-    .video-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1; /* Keeps it behind the content */
-        opacity: 0.1; /* Adjust the fade level (0 = invisible, 1 = full visible) */
-        filter: brightness(90%); /* Reduce brightness & slightly blur for a soft effect */
-    }
 
+        /* =============== FADED VIDEO BACKGROUND =============== */
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            /* Keeps it behind the content */
+            opacity: 0.1;
+            /* Adjust the fade level (0 = invisible, 1 = full visible) */
+            filter: brightness(90%);
+            /* Reduce brightness & slightly blur for a soft effect */
+        }
 
+        .github-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            background-color: #333;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .github-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .github-btn:hover {
+            background-color: #555;
+        }
+        .work__container .work__img {
+            width: 400px;
+            height: 300px;
+            object-fit:initial;
+            object-position: center bottom;
+            transition: transform 0.3s ease-in-out;
+        }
     </style>
 </head>
 
@@ -442,8 +480,8 @@
 
     <!--===== HEADER =====-->
     <header class="l-header">
-        
-        
+
+
 
 
         <!-- Bootstrap Navbar -->
@@ -467,16 +505,13 @@
                             <a class="nav-link active" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#personal-info">Personal Info</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#skills">Skills</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#work">Work</a>
                         </li>
                         <li class="nav-item">
-                            <a class="cv-button" href="assets\cv\Fazeel Asghar_CV.pdf" download>📄 CV/Resume</a>
+                            <a class="cv-button" href="assets\cv\Fazeel Resume.pdf" download>📄 CV/Resume</a>
 
                         </li>
                     </ul>
@@ -533,41 +568,6 @@
                         </g>
                     </svg>
                 </div>
-            </div>
-        </section>
-
-        <hr>
-        <section class="personal section" id="personal-info">
-            <h2 class="section-title">Personal Info</h2>
-            <div class="personal__container bd-grid">
-
-                <div class="personal__details">
-                    <h2 class="personal__title">I'm Fazeel,</h2>
-                    <p class="personal__text" style="text-align: justify; line-height: 1.6;">
-                        Born on August 19, 2001, I am a 23-year-old Pakistani from Khanpur, Rahim Yar Khan, currently
-                        pursuing my Bachelor's in Information Technology in Bahawalpur. Passionate about Artificial
-                        Intelligence, MLOps, and cloud technologies, I specialize in Machine Learning, Deep Learning,
-                        and IoT. My technical expertise includes TensorFlow, Convolutional Neural Networks (CNNs),
-                        Docker, Kubernetes, and Databricks for scalable AI solutions.
-                        <br><br>
-                        During my academic journey, I had the opportunity to conduct research under the <strong>Safe-RH
-                            Erasmus+ program</strong> at the <strong>University of the West of Scotland, UK</strong>,
-                        where I proposed a <strong>Smart Wheelchair with Object Detection and Vital Signs Monitoring
-                            System</strong>, enhancing my expertise in AI-driven healthcare solutions.
-                        <br><br>
-                        I have contributed to multiple AI and IoT-based projects, including <strong>Skin Disease
-                            Classification</strong>, <strong>Stock and Sales Prediction</strong>, <strong>Smart
-                            Wheelchair Development</strong>, and an <strong>Autonomous Vehicle Simulation</strong>. With
-                        a strong problem-solving mindset and a deep understanding of AI infrastructure, I am always
-                        eager to explore new challenges and innovate.
-                        <br><br>
-                        I am actively seeking opportunities that align with my expertise and offer avenues for
-                        professional growth, aiming to contribute to the advancement of AI and automation by building
-                        impactful and intelligent solutions.
-                    </p>
-                </div>
-
-            </div>
             </div>
         </section>
         <hr>
@@ -660,58 +660,101 @@
                 </div>
             </div>
         </section>
-
-
-
-        <hr>
         <!--===== WORK SECTION =====-->
-        <section class="work section" id="work">
+        <section class="work section" id="work"
+            style="text-align: center; padding: 70px 20px; justify-content: center; align-items:center;">
             <h2 class="section-title">Work</h2>
 
-            <div class="work__container" style="align-items: center;">
+            <div class="work__container" style="align-items: center; justify-content: center;">
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal1')">
-                    <img src="assets\img\vehicle_ins.jpg" alt="Vehicle Insurance Prediction">
-                    <h3 class="work__title">Vehicle Insurance Prediction</h3>
+                    <img class="work__img" src="assets\img\Tumor_Detection.gif" alt="Tumor Detection">
+                    <h3 class="work__title">Tumor Detection (Transfer Learning)</h3>
+                    <a href="https://github.com/Fazeel-AIML/Brain_Tumor_Detection" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
-
                 <!-- Project 2 -->
                 <div class="work__item" onclick="openModal('modal2')">
-                    <img src="assets/img/LLM.jpg" alt="Fine-Tuned GPT LLM">
-                    <h3 class="work__title">Fine-Tuned GPT LLM</h3>
+                    <img class="work__img" src="assets/img/veh_ins.gif" alt="Vehicle Insurance Prediction">
+                    <h3 class="work__title">Production Ready Vehicle Insurance Prediction (MLOPS)</h3>
+                    <a href="https://github.com/Fazeel-AIML/Vehicle_Insurance_MLOps_Deployed" class="github-btn"
+                        target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img src="assets\img\car.jpg" alt="Autonomous Car Simulation">
-                    <h3 class="work__title">Autonomous Car Simulation</h3>
+                    <img class="work__img" src="assets/img/weather_forcast.GIF" alt="End-to-End MLOps Weather forecasting">
+                    <h3 class="work__title">Production Ready Weather forecasting (MLOps)</h3>
+                    <a href="https://github.com/Fazeel-AIML/Weather_Forcast_Deployed_MLOps" class="github-btn"
+                        target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
 
                 <!-- Project 4 -->
                 <div class="work__item" onclick="openModal('modal4')">
-                    <img src="assets\img\skin_cancer.png" alt="Skin Disease Classification">
-                    <h3 class="work__title">Skin Disease Classification</h3>
+                    <img class="work__img" src="assets/img/llm_uni.gif" alt="Fine-Tuned GPT LLM">
+                    <h3 class="work__title">Fine-Tuned GPT LLM University Queries</h3>
+                    <a href="" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
 
                 <!-- Project 5 -->
                 <div class="work__item" onclick="openModal('modal5')">
-                    <img src="assets/img/tumour.png" alt="Tumor Detection">
-                    <h3 class="work__title">Tumor Detection</h3>
+                    <img class="work__img" src="assets/img/auto_car.gif" alt="Autonomous Car Simulation">
+                    <h3 class="work__title">Autonomous Car Simulation</h3>
+                    <a href="https://github.com/Fazeel-AIML/Autonomous_Car_App" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
 
                 <!-- Project 6 -->
                 <div class="work__item" onclick="openModal('modal6')">
-                    <img src="assets\img\stocks.jpg" alt="Stock & Sales Prediction">
-                    <h3 class="work__title">Stock & Sales Prediction</h3>
+                    <img class="work__img" src="assets\img\peoplecount.GIF" alt="Shopping Mall Escalator People Counter">
+                    <h3 class="work__title">Shopping Mall Escalator People Counter</h3>
+                    <a href="https://github.com/Fazeel-AIML/People_Counter" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
+                </div>
+                <!-- Project 8 -->
+                <div class="work__item" onclick="openModal('modal8')">
+                    <img class="work__img" src="assets\img\CarCounter.gif" alt="Car Counter Yolov8n ">
+                    <h3 class="work__title">Car Counter using Yolov8n </h3>
+                    <a href="https://github.com/Fazeel-AIML/Cars_Counter" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="work__item" onclick="openModal('modal7')">
+                    <img class="work__img" src="assets/img/skin_disease.gif" alt="Skin Disease Classification">
+                    <h3 class="work__title">Skin Disease Classification (CNN)</h3>
+                    <a href="https://github.com/Fazeel-AIML/Skin-Disease-Classification" class="github-btn"
+                        target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
+                </div>
+                <!-- Project 9 -->
+                <div class="work__item" onclick="openModal('modal9')">
+                    <img class="work__img" src="assets\img\Tickek.gif" alt="QR Code Ticket Reader and Generator">
+                    <h3 class="work__title">QR Code Ticket Reader and Generator</h3>
+                    <a href="https://github.com/Fazeel-AIML/QR_Code_Ticket_Generator" class="github-btn"
+                        target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- ===== MODALS ===== -->
         <!-- ===== MODALS ===== -->
-        <div id="modal1" class="modal">
+        <div id="modal2" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
 
                 <div class="modal-body">
                     <!-- Media Gallery -->
@@ -719,8 +762,8 @@
                         <div class="media-slider">
                             <!-- Media dynamically inserted here -->
                         </div>
-                        <button class="prev" onclick="changeSlide(-1, 'modal1')">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1, 'modal1')">&#10095;</button>
+                        <button class="prev" onclick="changeSlide(-1, 'modal2')">&#10094;</button>
+                        <button class="next" onclick="changeSlide(1, 'modal2')">&#10095;</button>
                     </div>
 
                     <!-- Project Details -->
@@ -740,9 +783,9 @@
             </div>
         </div>
 
-        <div id="modal2" class="modal">
+        <div id="modal4" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
 
                 <div class="modal-body">
                     <!-- Media Gallery -->
@@ -772,9 +815,9 @@
                 </div>
             </div>
         </div>
-        <div id="modal3" class="modal">
+        <div id="modal5" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal('modal3')">&times;</span>
+                <span class="close" onclick="closeModal('modal5')">&times;</span>
 
                 <div class="modal-body">
                     <!-- Media Gallery -->
@@ -837,9 +880,9 @@
                 </div>
             </div>
         </div>
-        <div id="modal5" class="modal">
+        <div id="modal1" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal('modal5')">&times;</span>
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
 
                 <div class="modal-body">
                     <!-- Media Gallery -->
@@ -861,37 +904,6 @@
                             <li>✅ Developed a deep learning model to detect and classify tumors in MRI scans.</li>
                             <li>⚡ Utilized OpenCV for image preprocessing and enhancement.</li>
                             <li>📊 Enhanced diagnostic accuracy, assisting doctors in early detection.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="modal6" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal6')">&times;</span>
-
-                <div class="modal-body">
-                    <!-- Media Gallery -->
-                    <div class="media-gallery">
-                        <div class="media-slider">
-                            <!-- Media dynamically inserted here -->
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-                    </div>
-
-                    <!-- Project Details -->
-                    <div class="details">
-                        <h2>📈 Stock & Sales Prediction</h2>
-                        <p class="subtitle">AI-driven forecasting for stock market trends and sales predictions.</p>
-                        <p><strong>Tech Stack:</strong> Machine Learning, Time Series Analysis, Python, Pandas,
-                            Scikit-learn</p>
-                        <p><strong>Impact:</strong> Data-driven insights for better business decision-making.</p>
-                        <ul>
-                            <li>✅ Developed predictive models for forecasting stock prices and sales trends.</li>
-                            <li>⚡ Utilized time series analysis to identify patterns and future trends.</li>
-                            <li>📊 Improved accuracy in forecasting business revenue and investment opportunities.</li>
                         </ul>
                     </div>
 
