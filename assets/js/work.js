@@ -1,8 +1,8 @@
 // Object to store media files for each modal
 const modalMedia = {
-    modal2: ["assets/img/Vehicle_Ins.mp4" ,  "assets/img/vehicle_ins.jpg", "assets/img/work2.jpg"],
-    modal4: ["assets/img/llm.mp4","assets/img/LLM.jpg"],
-    modal5: ["assets/img/car_drive.mp4", "assets/img/work3_vid1.mp4"],
+    modal2: ["assets/img/veh_ins - Copy.GIF","assets/img/Vehicle_Ins.mp4" ,  "assets/img/vehicle_ins.jpg", "assets/img/work2.jpg"],
+    modal4: ["assets/img/llm_uni - Copy.GIF","assets/img/llm.mp4","assets/img/LLM.jpg"],
+    modal5: ["assets/img/auto_car - Copy.GIF","assets/img/car_drive.mp4", "assets/img/work3_vid1.mp4"],
     modal7: ["assets/img/skin_cancer.png", "assets/img/work4_vid1.mp4"],
     modal1: ["assets/img/tumour.png", "assets/img/work5_vid1.mp4"],
     modal6: ["assets/img/work6.jpeg", "assets/img/work6_vid1.mp4"]
