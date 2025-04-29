@@ -11,6 +11,9 @@
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Add Fancybox CSS/JS CDN in your <head> and before closing </body> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
     <link rel="stylesheet" href="assets\css\work_css.css">
     <link rel="stylesheet" href="assets\css\bg_css.css">
     <title>Portfolio - Fazeel Asghar</title>
@@ -473,6 +476,76 @@
             object-position: center bottom;
             transition: transform 0.3s ease-in-out;
         }
+        #experience {
+            padding: 60px 30px;
+            background-color: #111827;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #d1d5db;
+          }
+          
+          #experience h2 {
+            align-items: center;
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            color: #38bdf8;
+            border-bottom: 2px solid #38bdf8;
+            display: inline-block;
+            padding-bottom: 10px;
+          }
+          
+          .experience-item {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            background-color: #1f2937;
+            border-left: 6px solid #38bdf8;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 28px rgba(56, 189, 248, 0.12);
+          }
+          
+          .experience-text {
+            width: 100%;
+          }
+          
+          .experience-text h3 {
+            font-size: 1.8em;
+            margin-bottom: 14px;
+            color: #38bdf8;
+          }
+          
+          .experience-text p {
+            font-size: 1.1em;
+            line-height: 1.75;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+          }
+          
+          .experience-media {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+          }
+          
+          .experience-media img,
+          .experience-media video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 18px rgba(56, 189, 248, 0.25);
+            transition: transform 0.3s ease;
+          }
+          
+          .experience-media img:hover,
+          .experience-media video:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.35);
+          }
+          
     </style>
 </head>
 
@@ -571,6 +644,53 @@
             </div>
         </section>
         <hr>
+        <section id="experience">
+            <h2>Experience</h2>
+          
+            <!-- Safe RH Experience -->
+            <div class="experience-item">
+              <div class="experience-text">
+                <h3>Safe RH – Junior AI Engineer</h3>
+                <p>Worked on the SAFE-RH Rural Health Monitoring System in collaboration with the University of the West of Scotland and Université de Lorraine. Developed AI models for health risk prediction, integrated vital signs monitoring into IoT devices, and contributed to a Smart Wheelchair with obstacle detection.</p>
+                <p>Technologies used: Python, Raspberry Pi, OpenCV, TensorFlow, and AWS. Contributed to real-time dashboards and streamlined model deployment via MLOps.</p>
+              </div>
+              <div class="experience-media">
+                <!-- Images -->
+                <a data-fancybox="safe-rh" href="assets\img\Safe_RH_IMG.png">
+                  <img src="assets\img\Safe_RH_IMG.png" alt="Safe RH Image 1" />
+                </a>
+                <a data-fancybox="safe-rh" href="assets\img\Safe_RH2.png">
+                  <img src="assets\img\Safe_RH2.png" alt="Safe RH Image 2" />
+                </a>
+              
+                <!-- Videos (with poster + controls to make them visible) -->
+                <a data-fancybox="safe-rh" href="assets\img\SafeRh (1).jfif">
+                  <img src="assets\img\SafeRh (1).jfif" controls poster="images/thumb1.jpg">
+                </a>
+                <a data-fancybox="safe-rh" href="assets\img\SafeRh (2).jfif">
+                  <img src="assets\img\SafeRh (2).jfif" controls poster="images/thumb2.jpg">
+                </a>
+              </div>
+            </div>
+          
+            <!-- Research Internship Experience -->
+            <div class="experience-item">
+              <div class="experience-text">
+                <h3>Research Internship (AI) – University of the West of Scotland</h3>
+                <p>Worked on a research project titled "Smart Wheelchair with Obstacle Detection & Vital Signs Monitoring". Built object detection pipelines, integrated sensor fusion for safety, and presented findings to international research teams.</p>
+                <p>Optimized edge AI on Raspberry Pi, published deployment docs, and delivered results during global academic workshops.</p>
+              </div>
+              <div class="experience-media">
+                <a data-fancybox="internship" href="assets\img\Research_Cert.jfif"><img src="assets\img\Research_Cert.jfif" alt="Research 1" /></a>
+                <a data-fancybox="internship" href="assets\img\Research (1).jfif"><img src="assets\img\Research (1).jfif" alt="Research 1" /></a>
+                <a data-fancybox="internship" href="assets\img\Research (2).jfif"><img src="assets\img\Research (2).jfif" alt="Research 2" /></a>
+                <a data-fancybox="internship" href="assets\img\Research.MP4"><video src="assets\img\Research.MP4" muted></video></a>
+                <a data-fancybox="internship" href="assets\img\Research.png"><img src="assets\img\Research.png" muted></a>
+              </div>
+            </div>
+          </section>
+          
+          <hr>         
         <!--===== SKILLS =====-->
         <section class="skills section" id="skills" style="text-align: center; padding: 70px 20px;">
             <h2 class="section-title" style="font-size: 32px; margin-bottom: 20px; font-weight: bold;">Skills</h2>
@@ -658,7 +778,7 @@
         <!--===== WORK SECTION =====-->
         <section class="work section" id="work"
             style="text-align: center; padding: 70px 20px; justify-content: center; align-items:center;">
-            <h2 class="section-title">Work</h2>
+            <h2 class="section-title">Projects</h2>
 
             <div class="work__container" style="align-items: center; justify-content: center;">
                 <!-- Project 1 -->
