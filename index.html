@@ -480,11 +480,10 @@
             padding: 60px 30px;
             background-color: #111827;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #d1d5db;
+            color: #000000;
           }
           
           #experience h2 {
-            align-items: center;
             text-align: center;
             font-size: 2.8em;
             margin-bottom: 60px;
@@ -492,13 +491,17 @@
             border-bottom: 2px solid #38bdf8;
             display: inline-block;
             padding-bottom: 10px;
-          }
+        }
+        #experience .section-title-wrapper {
+            display: flex;
+            justify-content: center;
+        }
           
           .experience-item {
             display: flex;
             flex-direction: column;
             gap: 30px;
-            background-color: #1f2937;
+            background-color: #111827;
             border-left: 6px solid #38bdf8;
             border-radius: 20px;
             padding: 30px;
@@ -645,7 +648,9 @@
         </section>
         <hr>
         <section id="experience">
+            <div class="section-title-wrapper">
             <h2>Experience</h2>
+        </div>
           
             <!-- Safe RH Experience -->
             <div class="experience-item">
@@ -732,7 +737,7 @@
                                 height="28"></iconify-icon>
                             <span class="skills__name" style="font-size: 18px; font-weight: bold;">AI/ML Engineering</span>
                         </div>
-                        <p style=" padding: 15px;font-size: 14px; color: #555; margin-top: 10px;"> GenAI, HuggingFace, LLMs, LangChain, Pandas, Numpy, CNN, YOLO, Matplotlib, Seaborn, PostgresSQL, MySQL, MongoDB Atlas
+                        <p style=" padding: 15px;font-size: 14px; color: #555; margin-top: 10px;"> GenAI, HuggingFace, LLMs, LangChain, Pandas, Numpy, CNN, YOLO, Matplotlib, Seaborn,ChromaDB, FAISS, PineCone, PostgresSQL, MySQL, MongoDB Atlas, TensorFlow, PyTorch, Scikit-learn, Keras, OpenCV, Streamlit</p>
                         </p>
                         <!-- <div class="skills__bar skills__ds"
                             style="height: 6px; background: #ddd; border-radius: 4px; margin-top: 10px;">
@@ -781,6 +786,30 @@
             <h2 class="section-title">Projects</h2>
 
             <div class="work__container" style="align-items: center; justify-content: center;">
+                <!-- Project 1 -->
+                <div class="work__item" onclick="openModal('modal1')">
+                    <img class="work__img" src="assets\img\veh_ins.GIF" alt="Tumor Detection">
+                    <h3 class="work__title">Aya-The-Emotion-Detection-ChatBot</h3>
+                    <a href="https://github.com/Fazeel-AIML/Sentiment-Analysis-Chatbot" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
+                </div>
+                <!-- Project 1 -->
+                <div class="work__item" onclick="openModal('modal1')">
+                    <img class="work__img" src="assets\img\veh_ins.GIF" alt="Tumor Detection">
+                    <h3 class="work__title">Live-RAG-Blogs-ChatBot</h3>
+                    <a href="https://github.com/Fazeel-AIML/Brain_Tumor_Detection" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
+                </div>
+                <!-- Project 1 -->
+                <div class="work__item" onclick="openModal('modal1')">
+                    <img class="work__img" src="assets\img\veh_ins.GIF" alt="Tumor Detection">
+                    <h3 class="work__title">Fine-Tuned-Microsoft-PHI-Medical-Data</h3>
+                    <a href="https://github.com/Fazeel-AIML/Brain_Tumor_Detection" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
+                </div>
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal1')">
                     <img class="work__img" src="assets\img\Tumor_Detection.gif" alt="Tumor Detection">
