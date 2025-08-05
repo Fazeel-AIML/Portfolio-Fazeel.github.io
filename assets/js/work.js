@@ -5,6 +5,7 @@ const modalMedia = {
     modal5: ["assets/img/auto_car - Copy.GIF","assets/img/car_drive.mp4", "assets/img/work3_vid1.mp4"],
     modal7: ["assets/img/skin_cancer.png", "assets/img/work4_vid1.mp4"],
     modal1: ["assets/img/tumour.png", "assets/img/work5_vid1.mp4"],
+    modal3: ["assets/img/Signora.MP4"],
     modal6: ["assets/img/work6.jpeg", "assets/img/work6_vid1.mp4"]
 };
 
