@@ -1,0 +1,359 @@
+/* ===== MODERN AI NEURAL DESIGN ===== */
+
+/* CSS Variables for New AI Theme */
+:root {
+    /* Purplish Grey & Glow */
+    --bg-dark: #0a0a0e;
+    --primary-gradient: linear-gradient(135deg, #7000ff 0%, #3d148c 100%);
+    --accent-cyan: #00f3ff;
+    --accent-purple: #9d46ff;
+    --glass-bg: rgba(15, 15, 25, 0.65);
+    --glass-border: rgba(112, 0, 255, 0.2);
+    --shadow-soft: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 25px rgba(112, 0, 255, 0.3);
+
+    /* Fonts */
+    --font-primary: 'Inter', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+}
+
+/* Modern AI Theme Setup */
+body {
+    background-color: var(--bg-dark);
+    color: #e0e0e0;
+    font-family: var(--font-primary);
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Video Background Improvements */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    display: block;
+    opacity: 0.6;
+    /* Reduced opacity to blend with dark bg */
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(10, 10, 14, 0.9) 0%, rgba(10, 10, 14, 0.7) 50%, rgba(10, 10, 14, 0.95) 100%);
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
+
+/* Glassmorphism Card Style (Updated for AI look) */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(112, 0, 255, 0.25), inset 0 0 20px rgba(112, 0, 255, 0.05);
+    border-color: var(--accent-cyan);
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+/* Modern Navbar */
+.navbar.fixed-top {
+    background: rgba(10, 10, 14, 0.9) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(112, 0, 255, 0.15);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+    color: #ccc !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-cyan) !important;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Home Section Layout & Responsiveness */
+#home {
+    min-height: 100vh;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Home Section Alignment Fix */
+#home .row {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.home__data {
+    text-align: left;
+    margin-left: 0;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 2;
+}
+
+.home__content-box {
+    display: inline-block;
+    padding: 2.5rem;
+    border-radius: 24px;
+    max-width: 100%;
+}
+
+.home__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+    /* Reduced for tighter grouping */
+}
+
+.title__container {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.job-title {
+    color: var(--accent-cyan);
+    font-family: 'Space Grotesk', monospace;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+    margin-top: 0;
+    white-space: normal;
+    /* Allow wrapping if needed */
+}
+
+/* Skills Section Styles */
+.skills__intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.skills__text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.skills__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    /* Increased gap */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-bottom: 100px;
+    /* Added margin to prevent footer overlap */
+}
+
+/* Skills Section Items */
+.skills__data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills__data:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.15);
+}
+
+.skills__names {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.skills__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.skills__names iconify-icon {
+    color: var(--accent-cyan) !important;
+    filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.5));
+}
+
+.skills__description {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin-top: 8px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.skills__percentage {
+    font-weight: 700;
+    color: var(--accent-purple);
+    margin-top: 16px;
+    font-size: 1.1rem;
+    text-align: right;
+    text-shadow: 0 0 10px rgba(157, 70, 255, 0.5);
+}
+
+/* Animations (Restored) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Gradient Text (Restored) */
+.gradient-text {
+    background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home__title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Home Section: Stack Text then Image */
+    #home .row {
+        flex-direction: column;
+    }
+
+    .home__data {
+        text-align: center;
+        padding-top: 2rem;
+        margin-bottom: 2rem;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home__img {
+        justify-content: center;
+        margin-bottom: 2rem;
+        order: 2;
+        /* Ensure image is below text if flex-direction is column */
+    }
+
+    .home__blob {
+        max-width: 300px;
+    }
+
+    /* Skills: 1 Column */
+    .skills__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .job-title {
+        font-size: 1.2rem;
+    }
+
+    /* Navbar Mobile Adjustment */
+    .navbar-collapse {
+        background: rgba(10, 10, 14, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 1rem;
+        border-radius: 0 0 16px 16px;
+        border-bottom: 1px solid var(--accent-purple);
+    }
+}
