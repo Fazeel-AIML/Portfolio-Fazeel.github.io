@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets\css\styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- =====MODERN GOOGLE FONTS===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -14,8 +21,9 @@
     <!-- Add Fancybox CSS/JS CDN in your <head> and before closing </body> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-    <link rel="stylesheet" href="assets\css\work_css.css">
-    <link rel="stylesheet" href="assets\css\bg_css.css">
+    <link rel="stylesheet" href="assets/css/work_css.css">
+    <link rel="stylesheet" href="assets/css/bg_css.css">
+    <link rel="stylesheet" href="assets/css/modern-styles.css">
     <title>Portfolio - Fazeel Asghar</title>
     <style>
         * {
@@ -130,7 +138,8 @@
             body {
                 margin: 0px;
             }
-            .container-fluid{
+
+            .container-fluid {
                 height: 900px;
             }
 
@@ -218,7 +227,7 @@
                 text-align: center;
                 /* Center the text */
                 margin-left: 30px;
-                margin-top: 40px;
+                margin-top: 20px;
             }
 
             .job-title {
@@ -469,21 +478,23 @@
         .github-btn:hover {
             background-color: #555;
         }
+
         .work__container .work__img {
             width: 400px;
             height: 300px;
-            object-fit:initial;
+            object-fit: initial;
             object-position: center bottom;
             transition: transform 0.3s ease-in-out;
         }
+
         #experience {
             padding: 60px 30px;
             background-color: #111827;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #000000;
-          }
-          
-          #experience h2 {
+        }
+
+        #experience h2 {
             text-align: center;
             font-size: 2.8em;
             margin-bottom: 60px;
@@ -492,12 +503,13 @@
             display: inline-block;
             padding-bottom: 10px;
         }
+
         #experience .section-title-wrapper {
             display: flex;
             justify-content: center;
         }
-          
-          .experience-item {
+
+        .experience-item {
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -507,33 +519,33 @@
             padding: 30px;
             margin-bottom: 50px;
             box-shadow: 0 8px 28px rgba(56, 189, 248, 0.12);
-          }
-          
-          .experience-text {
+        }
+
+        .experience-text {
             width: 100%;
-          }
-          
-          .experience-text h3 {
+        }
+
+        .experience-text h3 {
             font-size: 1.8em;
             margin-bottom: 14px;
             color: #38bdf8;
-          }
-          
-          .experience-text p {
+        }
+
+        .experience-text p {
             font-size: 1.1em;
             line-height: 1.75;
             color: #cbd5e1;
             margin-bottom: 12px;
-          }
-          
-          .experience-media {
+        }
+
+        .experience-media {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 16px;
-          }
-          
-          .experience-media img,
-          .experience-media video {
+        }
+
+        .experience-media img,
+        .experience-media video {
             width: 100%;
             height: 200px;
             object-fit: cover;
@@ -541,28 +553,31 @@
             cursor: pointer;
             box-shadow: 0 4px 18px rgba(56, 189, 248, 0.25);
             transition: transform 0.3s ease;
-          }
-          
-          .experience-media img:hover,
-          .experience-media video:hover {
+        }
+
+        .experience-media img:hover,
+        .experience-media video:hover {
             transform: scale(1.03);
             box-shadow: 0 6px 24px rgba(56, 189, 248, 0.35);
-          }
-          
+        }
     </style>
 </head>
 
-<body>
-    <video class="video-bg" autoplay muted loop>
-            <source src="assets\img\AI_bg.mp4" type="video/mp4">
-        </video>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70">
+    <video class="video-bg" autoplay muted loop play-inline>
+        <source src="assets/img/AI_bg.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <!-- Animated background will be injected by modern-animations.js (can be combined or used as fallback) -->
     <main class="l-main">
-        
+
         <!-- Bootstrap Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style='background: linear-gradient(45deg, #4a90e2, #6a5acd);'>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+            style='background: linear-gradient(45deg, #4a90e2, #6a5acd); box-shadow: 0 2px 10px rgba(0,0,0,0.3);'>
             <div class="container">
                 <!-- Brand / Logo -->
-                <a class="navbar-brand" href="index.html">Fazeel</a>
+                <a class="navbar-brand fw-bold" href="#home">Fazeel</a>
 
                 <!-- Navbar Toggler Button for Mobile -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -574,7 +589,7 @@
                     <ul class="navbar-nav mx-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
+                            <a class="nav-link" href="#home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#experience">Experience</a>
@@ -586,73 +601,78 @@
                             <a class="nav-link" href="#work">Work</a>
                         </li>
                         <li class="nav-item">
-                            <a class="cv-button" href="assets\cv\Fazeel Resume.pdf" download>📄 CV/Resume</a>
+                            <a class="cv-button" href="assets/cv/Fazeel Resume.pdf" download>📄 CV/Resume</a>
 
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
+
         <!--===== HOME =====-->
 
         <!-- Bootstrap Home Section -->
-        <section class="container-fluid text-center" id="home">
-            <div class="row justify-content-center align-items-center min-vh-100">
+        <section class="container-fluid" id="home">
+            <div class="row align-items-center" style="min-height: 85vh;">
                 <!-- Social Links (Left Side) -->
-                <div style="margin: 20px  0;;" class="col-md-1 d-flex  flex-column align-items-center social-links">
+                <div class="col-md-1 d-flex flex-column align-items-center social-links">
                     <a href="https://www.linkedin.com/in/fazeelasghar/" target="_blank" class="text-white fs-3 mb-3">
                         <i class='bx bxl-linkedin'></i>
                     </a>
-                    <a href="https://github.com/Fazeel-AIML?tab=repositories" target="_blank" class="text-white fs-3">
+                    <a href="https://github.com/Fazeel-AIML" target="_blank" class="text-white fs-3">
                         <i class='bx bxl-github'></i>
                     </a>
                 </div>
 
-                <!-- Text Content (Center) -->
-                <div style="margin-bottom: 10px;" class="col-md-6 text-center">
-                    <div class="home__data">
-                        <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Fazeel.</span><br>
-                            <div class="title__container"><span class="job-title">AI Engineer</span>
-                        </h1>
-
+                <!-- Text Content (Center/Left) -->
+                <!-- Text Content (Center/Left) -->
+                <div class="col-md-6">
+                    <div class="home__data animate-on-scroll">
+                        <div class="home__content-box glass-card">
+                            <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Fazeel.</span></h1>
+                            <div class="title__container"><span class="job-title">AI Engineer / MLOps Engineer</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Image (Right Side) -->
-                <div class="col-md-5 text-center">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
-                        <mask id="mask0" mask-type="alpha">
-                            <path
-                                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path
-                                d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
-                            <image class="home__blob-img" x="40" y="10" href="assets/img/Me.png" />
-                        </g>
-                    </svg>
+                <div class="col-md-5">
+                    <div class="home__img animate-on-scroll">
+                        <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0" mask-type="alpha">
+                                <path
+                                    d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                            </mask>
+                            <g mask="url(#mask0)">
+                                <path
+                                    d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                                <image class="home__blob-img" x="40" y="10" href="assets/img/Me.png" />
+                            </g>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </section>
         <hr>
         <!--===== WORK SECTION =====-->
-        <section class="work section" id="work"
+        <section class="work section animate-on-scroll" id="work"
             style="text-align: center; padding: 70px 20px; justify-content: center; align-items:center;">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title gradient-text">Projects</h2>
 
             <div class="work__container" style="align-items: center; justify-content: center;">
                 <!-- Project 5 -->
-                <div class="work__item" onclick="openModal('modal5')">
-                    <img class="work__img" src="assets\img\auto_car - Copy.GIF" alt="Autonomous Car Simulation">
+                <div class="work__item glass-card animate-on-scroll" onclick="openModal('modal5')">
+                    <img class="work__img" src="assets/img/auto_car - Copy.GIF" alt="Autonomous Car Simulation">
                     <h3 class="work__title">Autonomous Car Simulation</h3>
-                    <a href="https://github.com/Fazeel-AIML/Autonomous_Small_Prototype" class="github-btn" target="_blank">
+                    <a href="https://github.com/Fazeel-AIML/Autonomous_Small_Prototype" class="github-btn"
+                        target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
                     </a>
                 </div>
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets\img\Signora.gif" alt="Signora">
+                    <img class="work__img" src="assets/img/Signora.gif" alt="Signora">
                     <h3 class="work__title">SignoraAI - Sign Recognition for Disabled</h3>
                     <a href="https://github.com/Fazeel-AIML/SignoraAI" class="github-btn" target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
@@ -660,41 +680,50 @@
                 </div>
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets\img\Medical_Chatbot2.gif" alt="Medical_Chatbot">
+                    <img class="work__img" src="assets/img/Medical_Chatbot2.gif" alt="Medical_Chatbot">
                     <h3 class="work__title">Medical - Chatbot with Voice</h3>
-                    <a href="https://github.com/Fazeel-AIML/Voice_Medical_Chatbot.git" class="github-btn" target="_blank">
+                    <a href="https://github.com/Fazeel-AIML/Voice_Medical_Chatbot.git" class="github-btn"
+                        target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
                     </a>
                 </div>
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets\img\AYA.gif" alt="Tumor Detection">
+                    <img class="work__img" src="assets/img/AYA.gif" alt="Email Agent">
                     <h3 class="work__title">Email Classifier and Ticket Geneartor Agent</h3>
-                    <a href="https://github.com/Fazeel-AIML/Support-Ticket-Resolution-Agent" class="github-btn" target="_blank">
+                    <a href="https://github.com/Fazeel-AIML/Support-Ticket-Resolution-Agent" class="github-btn"
+                        target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
                     </a>
                 </div>
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets\img\AYA.gif" alt="Tumor Detection">
+                    <img class="work__img" src="assets/img/AYA.gif" alt="Aya Chatbot">
                     <h3 class="work__title">Aya-The-Emotion-Detection-ChatBot</h3>
-                    <a href="https://github.com/Fazeel-AIML/Sentiment-Analysis-Chatbot" class="github-btn" target="_blank">
+                    <a href="https://github.com/Fazeel-AIML/Sentiment-Analysis-Chatbot" class="github-btn"
+                        target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
                     </a>
                 </div>
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets\img\Blogs_Chatbot.gif" alt="Tumor Detection">
+                    <img class="work__img" src="assets/img/Blogs_Chatbot.gif" alt="Blogs Chatbot">
                     <h3 class="work__title">Live-RAG-Blogs-ChatBot</h3>
+                    <a href="https://github.com/Fazeel-AIML/Blogs_Chatbot" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
-                 
+
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets\img\Medical_Chatbot.gif" alt="Tumor Detection">
+                    <img class="work__img" src="assets/img/Medical_Chatbot.gif" alt="Medical Chatbot">
                     <h3 class="work__title">Fine-Tuned-Microsoft-PHI-Medical-Data</h3>
+                    <a href="https://github.com/Fazeel-AIML/Medical_Chatbot_PHI" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
                 <!-- Project 1 -->
                 <div class="work__item" onclick="openModal('modal1')">
-                    <img class="work__img" src="assets\img\Tumor_Detection.gif" alt="Tumor Detection">
+                    <img class="work__img" src="assets/img/Tumor_Detection.gif" alt="Tumor Detection">
                     <h3 class="work__title">Tumor Detection (Transfer Learning)</h3>
                     <a href="https://github.com/Fazeel-AIML/Brain_Tumor_Detection" class="github-btn" target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
@@ -702,7 +731,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="work__item" onclick="openModal('modal2')">
-                    <img class="work__img" src="assets\img\veh_ins - Copy.GIF" alt="Vehicle Insurance Prediction">
+                    <img class="work__img" src="assets/img/veh_ins - Copy.GIF" alt="Vehicle Insurance Prediction">
                     <h3 class="work__title">Production Ready Vehicle Insurance Prediction (MLOPS)</h3>
                     <a href="https://github.com/Fazeel-AIML/Vehicle_Insurance_MLOps_Deployed" class="github-btn"
                         target="_blank">
@@ -712,7 +741,8 @@
 
                 <!-- Project 3 -->
                 <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/weather_forcast.GIF" alt="End-to-End MLOps Weather forecasting">
+                    <img class="work__img" src="assets/img/weather_forcast.GIF"
+                        alt="End-to-End MLOps Weather forecasting">
                     <h3 class="work__title">Production Ready Weather forecasting (MLOps)</h3>
                     <a href="https://github.com/Fazeel-AIML/Weather_Forcast_Deployed_MLOps" class="github-btn"
                         target="_blank">
@@ -722,15 +752,19 @@
 
                 <!-- Project 4 -->
                 <div class="work__item" onclick="openModal('modal4')">
-                    <img class="work__aimg" src="assets\img\llm_uni - Copy.GIF" alt="Fine-Tuned GPT LLM">
+                    <img class="work__img" src="assets/img/llm_uni - Copy.GIF" alt="Fine-Tuned GPT LLM">
                     <h3 class="work__title">Fine-Tuned GPT LLM University Queries</h3>
+                    <a href="https://github.com/Fazeel-AIML/Fine_Tuned_LLM" class="github-btn" target="_blank">
+                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
+                    </a>
                 </div>
 
-               
+
 
                 <!-- Project 6 -->
                 <div class="work__item" onclick="openModal('modal6')">
-                    <img class="work__img" src="assets\img\peoplecount.GIF" alt="Shopping Mall Escalator People Counter">
+                    <img class="work__img" src="assets/img/peoplecount.GIF"
+                        alt="Shopping Mall Escalator People Counter">
                     <h3 class="work__title">Shopping Mall Escalator People Counter</h3>
                     <a href="https://github.com/Fazeel-AIML/People_Counter" class="github-btn" target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
@@ -738,7 +772,7 @@
                 </div>
                 <!-- Project 8 -->
                 <div class="work__item" onclick="openModal('modal8')">
-                    <img class="work__img" src="assets\img\CarCounter.gif" alt="Car Counter Yolov8n ">
+                    <img class="work__img" src="assets/img/CarCounter.gif" alt="Car Counter Yolov8n ">
                     <h3 class="work__title">Car Counter using Yolov8n </h3>
                     <a href="https://github.com/Fazeel-AIML/Cars_Counter" class="github-btn" target="_blank">
                         <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
@@ -756,7 +790,7 @@
                 </div>
                 <!-- Project 9 -->
                 <div class="work__item" onclick="openModal('modal9')">
-                    <img class="work__img" src="assets\img\Tickek.gif" alt="QR Code Ticket Reader and Generator">
+                    <img class="work__img" src="assets/img/Tickek.gif" alt="QR Code Ticket Reader and Generator">
                     <h3 class="work__title">QR Code Ticket Reader and Generator</h3>
                     <a href="https://github.com/Fazeel-AIML/QR_Code_Ticket_Generator" class="github-btn"
                         target="_blank">
@@ -865,37 +899,6 @@
                 </div>
             </div>
         </div>
-        <div id="modal4" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal4')">&times;</span>
-
-                <div class="modal-body">
-                    <!-- Media Gallery -->
-                    <div class="media-gallery">
-                        <div class="media-slider">
-                            <!-- Media dynamically inserted here -->
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-                    </div>
-
-                    <!-- Project Details -->
-                    <div class="details">
-                        <h2>🩺 Skin Disease Classification</h2>
-                        <p class="subtitle">Deep learning model for detecting and classifying skin diseases.</p>
-                        <p><strong>Tech Stack:</strong> TensorFlow, Keras, OpenCV, Django, AWS EC2, FastAPI</p>
-                        <p><strong>Impact:</strong> Enhanced early disease detection accuracy with cloud-based real-time
-                            predictions.</p>
-                        <ul>
-                            <li>✅ Developed a CNN-based model to classify melanoma and seborrheic dermatitis.</li>
-                            <li>⚡ Integrated FastAPI for real-time disease classification via a web interface.</li>
-                            <li>🌐 Deployed on AWS EC2 for scalable and cloud-based diagnosis.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('modal1')">&times;</span>
@@ -929,76 +932,91 @@
         <hr>
         <section id="experience">
             <div class="section-title-wrapper">
-            <h2>Experience</h2>
-        </div>
-        <!-- 7KC Experience -->
-            <div class="experience-item">
-              <div class="experience-text">
-                <h3>7 Kings Code – AI Developer - <i  style="color: #ffffff;"> Current</i></h3>
-                <p>Developed a multi-session conversational AI agent, integrated with the Unitree Go2 Pro quadruped robot, enabling adaptive interaction and task execution.</p>
-                <p>Built a GenAI-based resume parser for a proprietary job-hunting platform, and deployed an autonomous email triage agent to classify messages and notify the support team accordingly. Link:  https://jobsshopper.com/</p>
-                <p>Trained reinforcement learning agents for decision-making tasks and Agentic AI systems for autonomous workflows in real-world scenarios.</p>
-              </div>
-              
+                <h2>Experience</h2>
             </div>
-          
+            <!-- 7KC Experience -->
+            <div class="experience-item glass-card animate-on-scroll">
+                <div class="experience-text">
+                    <h3>7 Kings Code – AI Developer - <i style="color: #ffffff;"> Current</i></h3>
+                    <p>Developed a multi-session conversational AI agent, integrated with the Unitree Go2 Pro quadruped
+                        robot, enabling adaptive interaction and task execution.</p>
+                    <p>Built a GenAI-based resume parser for a proprietary job-hunting platform, and deployed an
+                        autonomous email triage agent to classify messages and notify the support team accordingly.
+                        Link: https://jobsshopper.com/</p>
+                    <p>Trained reinforcement learning agents for decision-making tasks and Agentic AI systems for
+                        autonomous workflows in real-world scenarios.</p>
+                </div>
+
+            </div>
+
             <!-- Safe RH Experience -->
-            <div class="experience-item">
-              <div class="experience-text">
-                <h3>Safe RH – Junior AI Engineer</h3>
-                <p>Worked on the SAFE-RH Rural Health Monitoring System in collaboration with the University of the West of Scotland and Université de Lorraine. Developed AI models for health risk prediction, integrated vital signs monitoring into IoT devices, and contributed to a Smart Wheelchair with obstacle detection.</p>
-                <p>Technologies used: Python, Raspberry Pi, OpenCV, TensorFlow, and AWS. Contributed to real-time dashboards and streamlined model deployment via MLOps.</p>
-              </div>
-              <div class="experience-media">
-                <!-- Images -->
-                <a data-fancybox="safe-rh" href="assets\img\SafeRH-Letter.png">
-                  <img src="assets\img\SafeRH-Letter.png" alt="Safe RH Image 1" />
-                </a>
-                <a data-fancybox="safe-rh" href="assets\img\Safe_RH_IMG.png">
-                  <img src="assets\img\Safe_RH_IMG.png" alt="Safe RH Image 2" />
-                </a>
-                <a data-fancybox="safe-rh" href="assets\img\Safe_RH2.png">
-                  <img src="assets\img\Safe_RH2.png" alt="Safe RH Image 3" />
-                </a>
-              
-                <!-- Videos (with poster + controls to make them visible) -->
-                <a data-fancybox="safe-rh" href="assets\img\SafeRh (1).jfif">
-                  <img src="assets\img\SafeRh (1).jfif" controls poster="images/thumb1.jpg">
-                </a>
-                <a data-fancybox="safe-rh" href="assets\img\SafeRh (2).jfif">
-                  <img src="assets\img\SafeRh (2).jfif" controls poster="images/thumb2.jpg">
-                </a>
-              </div>
+            <div class="experience-item glass-card animate-on-scroll">
+                <div class="experience-text">
+                    <h3>Safe RH – Junior AI Engineer</h3>
+                    <p>Worked on the SAFE-RH Rural Health Monitoring System in collaboration with the University of the
+                        West of Scotland and Université de Lorraine. Developed AI models for health risk prediction,
+                        integrated vital signs monitoring into IoT devices, and contributed to a Smart Wheelchair with
+                        obstacle detection.</p>
+                    <p>Technologies used: Python, Raspberry Pi, OpenCV, TensorFlow, and AWS. Contributed to real-time
+                        dashboards and streamlined model deployment via MLOps.</p>
+                </div>
+                <div class="experience-media">
+                    <!-- Images -->
+                    <a data-fancybox="safe-rh" href="assets\img\SafeRH-Letter.png">
+                        <img src="assets\img\SafeRH-Letter.png" alt="Safe RH Image 1" />
+                    </a>
+                    <a data-fancybox="safe-rh" href="assets\img\Safe_RH_IMG.png">
+                        <img src="assets\img\Safe_RH_IMG.png" alt="Safe RH Image 2" />
+                    </a>
+                    <a data-fancybox="safe-rh" href="assets\img\Safe_RH2.png">
+                        <img src="assets\img\Safe_RH2.png" alt="Safe RH Image 3" />
+                    </a>
+
+                    <!-- Videos (with poster + controls to make them visible) -->
+                    <a data-fancybox="safe-rh" href="assets\img\SafeRh (1).jfif">
+                        <img src="assets\img\SafeRh (1).jfif" controls poster="images/thumb1.jpg">
+                    </a>
+                    <a data-fancybox="safe-rh" href="assets\img\SafeRh (2).jfif">
+                        <img src="assets\img\SafeRh (2).jfif" controls poster="images/thumb2.jpg">
+                    </a>
+                </div>
             </div>
-          
+
             <!-- Research Internship Experience -->
-            <div class="experience-item">
-              <div class="experience-text">
-                <h3>Research Internship (AI) – University of the West of Scotland</h3>
-                <p>Worked on a research project titled "Smart Wheelchair with Obstacle Detection & Vital Signs Monitoring". Built object detection pipelines, integrated sensor fusion for safety, and presented findings to international research teams.</p>
-                <p>Optimized edge AI on Raspberry Pi, published deployment docs, and delivered results during global academic workshops.</p>
-              </div>
-              <div class="experience-media">
-                <a data-fancybox="internship" href="assets\img\Research_Cert.jfif"><img src="assets\img\Research_Cert.jfif" alt="Research 1" /></a>
-                <a data-fancybox="internship" href="assets\img\Research (1).jfif"><img src="assets\img\Research (1).jfif" alt="Research 1" /></a>
-                <a data-fancybox="internship" href="assets\img\Research (2).jfif"><img src="assets\img\Research (2).jfif" alt="Research 2" /></a>
-                <a data-fancybox="internship" href="assets\img\Research.MP4"><video src="assets\img\Research.MP4" muted></video></a>
-                <a data-fancybox="internship" href="assets\img\Research.png"><img src="assets\img\Research.png" muted></a>
-                <a data-fancybox="internship" href="assets\img\Pres_Pic.JPG"><img src="assets\img\Pres_Pic.JPG" muted></a>
-              </div>
+            <div class="experience-item glass-card animate-on-scroll">
+                <div class="experience-text">
+                    <h3>Research Internship (AI) – University of the West of Scotland</h3>
+                    <p>Worked on a research project titled "Smart Wheelchair with Obstacle Detection & Vital Signs
+                        Monitoring". Built object detection pipelines, integrated sensor fusion for safety, and
+                        presented findings to international research teams.</p>
+                    <p>Optimized edge AI on Raspberry Pi, published deployment docs, and delivered results during global
+                        academic workshops.</p>
+                </div>
+                <div class="experience-media">
+                    <a data-fancybox="internship" href="assets\img\Research_Cert.jfif"><img
+                            src="assets\img\Research_Cert.jfif" alt="Research 1" /></a>
+                    <a data-fancybox="internship" href="assets\img\Research (1).jfif"><img
+                            src="assets\img\Research (1).jfif" alt="Research 1" /></a>
+                    <a data-fancybox="internship" href="assets\img\Research (2).jfif"><img
+                            src="assets\img\Research (2).jfif" alt="Research 2" /></a>
+                    <a data-fancybox="internship" href="assets\img\Research.MP4"><video src="assets\img\Research.MP4"
+                            muted></video></a>
+                    <a data-fancybox="internship" href="assets\img\Research.png"><img src="assets\img\Research.png"
+                            muted></a>
+                    <a data-fancybox="internship" href="assets\img\Pres_Pic.JPG"><img src="assets\img\Pres_Pic.JPG"
+                            muted></a>
+                </div>
             </div>
-          </section>
-          
-          <hr>         
+        </section>
+
         <!--===== SKILLS =====-->
-        <section class="skills section" id="skills" style="text-align: center; padding: 70px 20px;">
-            <h2 class="section-title" style="font-size: 32px; margin-bottom: 20px; font-weight: bold;">Skills</h2>
+        <section class="skills section animate-on-scroll" id="skills">
+            <h2 class="section-title gradient-text">Skills</h2>
 
-            <div class="skills__container bd-grid"
-                style="display: flex; flex-direction: column; align-items: center; max-width: 1000px; margin: auto;">
+            <div class="skills__container bd-grid">
 
-                <div style="text-align: center; max-width: 800px; margin-bottom: 30px;">
-                    <p class="skills__text" style="font-size: 16px; text-align: justify; line-height: 1.6;">
+                <div class="skills__intro">
+                    <p class="skills__text animate-on-scroll">
                         Passionate and results-driven professional with expertise in Artificial Intelligence, MLOps, and
                         Cloud Computing.
                         Proven track record of delivering impactful results through a strong skill set in the following
@@ -1006,75 +1024,55 @@
                     </p>
                 </div>
 
-                <div class="skills__grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; width: 100%; justify-content: center;">
+            </div>
 
-                    <div class="skills__data"
-                        style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); text-align: left;">
-                        <div class="skills__names" style="display: flex; align-items: center; gap: 12px;">
-                            <iconify-icon icon="akar-icons:python-fill" style="color: #3e76f8;" width="28"
-                                height="28"></iconify-icon>
-                            <span class="skills__name" style="font-size: 18px; font-weight: bold;">Python</span>
-                        </div>
-                        <p style="padding: 15px;font-size: 14px; color: #555; margin-top: 15px;">Django, Flask, QTPY, OpenCV, Socket, FastAPI</p>
-                        <!-- <div class="skills__bar skills__python"
-                            style="height: 6px; background: #ddd; border-radius: 4px; margin-top: 10px;">
-                            <div style="width: 86%; height: 100%; background: #3e76f8; border-radius: 4px;"></div>
-                        </div> -->
-                        <div style="margin-top: 5px; font-weight: bold;">85%</div>
+            <div class="skills__grid">
+
+                <div class="skills__data animate-on-scroll">
+                    <div class="skills__names">
+                        <iconify-icon icon="akar-icons:python-fill" width="28" height="28"></iconify-icon>
+                        <span class="skills__name">Python</span>
                     </div>
-
-                    <div class="skills__data"
-                        style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); text-align: left;">
-                        <div class="skills__names" style="display: flex; align-items: center; gap: 12px;">
-                            <iconify-icon icon="mdi:database" style="color: #3e76f8;" width="28"
-                                height="28"></iconify-icon>
-                            <span class="skills__name" style="font-size: 18px; font-weight: bold;">AI/ML Engineering</span>
-                        </div>
-                        <p style=" padding: 15px;font-size: 14px; color: #555; margin-top: 10px;"> GenAI, HuggingFace, LLMs, LangChain, Pandas, Numpy, CNN, YOLO, Matplotlib, Seaborn,ChromaDB, FAISS, PineCone, PostgresSQL, MySQL, MongoDB Atlas, TensorFlow, PyTorch, Scikit-learn, Keras, OpenCV, Streamlit</p>
-                        </p>
-                        <!-- <div class="skills__bar skills__ds"
-                            style="height: 6px; background: #ddd; border-radius: 4px; margin-top: 10px;">
-                            <div style="width: 100%; height: 100%; background: #3e76f8; border-radius: 4px;"></div>
-                        </div> -->
-                        <div style="  font-weight: bold;">85%</div>
-                    </div>
-
-                    <div class="skills__data"
-                        style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); text-align: left;">
-                        <div class="skills__names" style="display: flex; align-items: center; gap: 12px;">
-                            <iconify-icon icon="mdi:docker" style="color: #3e76f8;" width="28"
-                                height="28"></iconify-icon>
-                            <span class="skills__name" style="font-size: 18px; font-weight: bold;">MLOps</span>
-                        </div>
-                        <p style="padding: 15px;font-size: 14px; color: #555; margin-top: 10px;">Docker, Kubernetes, CI/CD, GitHub Actions,</p>
-                        <!-- <div class="skills__bar skills__mlops"
-                            style="height: 6px; background: #ddd; border-radius: 4px; margin-top: 10px;">
-                            <div style="width: 105%; height: 100%; background: #3e76f8; border-radius: 4px;"></div>
-                        </div> -->
-                        <div style="margin-top: 5px; font-weight: bold;">75%</div>
-                    </div>
-
-                    <div class="skills__data"
-                        style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); text-align: left;">
-                        <div class="skills__names" style="display: flex; align-items: center; gap: 12px;">
-                            <iconify-icon icon="mdi:cloud" style="color: #3e76f8;" width="28"
-                                height="28"></iconify-icon>
-                            <span class="skills__name" style="font-size: 18px; font-weight: bold;">Cloud Computing
-                                (AWS)</span>
-                        </div>
-                        <p style="padding: 15px; font-size: 14px; color: #555; margin-top: 10px;">AWS EC2, AWS S3, AWS ECR, AWS Lambda</p>
-                        <!-- <div class="skills__bar skills__cloud"
-                            style="height: 6px; background: #ddd; border-radius: 4px; margin-top: 10px;">
-                            <div style="width: 100%; height: 100%; background: #3e76f8; border-radius: 4px;"></div>
-                        </div> -->
-                        <div style="margin-top: 5px; font-weight: bold;">70%</div>
-                    </div>
-
+                    <p class="skills__description">Django, Flask, QTPY,
+                        OpenCV, Socket, FastAPI</p>
+                    <div class="skills__percentage">85%</div>
                 </div>
+
+                <div class="skills__data animate-on-scroll">
+                    <div class="skills__names">
+                        <iconify-icon icon="mdi:database" width="28" height="28"></iconify-icon>
+                        <span class="skills__name">AI/ML Engineering</span>
+                    </div>
+                    <p class="skills__description">GenAI, HuggingFace,
+                        LLMs, LangChain, Pandas, Numpy, CNN, YOLO, Matplotlib, Seaborn, ChromaDB, FAISS, PineCone,
+                        PostgresSQL, MySQL, MongoDB Atlas, TensorFlow, PyTorch, Scikit-learn, Keras, OpenCV,
+                        Streamlit</p>
+                    <div class="skills__percentage">85%</div>
+                </div>
+
+                <div class="skills__data animate-on-scroll">
+                    <div class="skills__names">
+                        <iconify-icon icon="mdi:docker" width="28" height="28"></iconify-icon>
+                        <span class="skills__name">MLOps</span>
+                    </div>
+                    <p class="skills__description">Docker, Kubernetes,
+                        CI/CD, GitHub Actions</p>
+                    <div class="skills__percentage">75%</div>
+                </div>
+
+                <div class="skills__data animate-on-scroll">
+                    <div class="skills__names">
+                        <iconify-icon icon="mdi:cloud" width="28" height="28"></iconify-icon>
+                        <span class="skills__name">Cloud Computing (AWS)</span>
+                    </div>
+                    <p class="skills__description">AWS EC2, AWS S3, AWS ECR, AWS Lambda</p>
+                    <div class="skills__percentage">70%</div>
+                </div>
+
+            </div>
             </div>
         </section>
-        
+
     </main>
 
     <!--===== FOOTER =====-->
@@ -1093,7 +1091,7 @@
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="assets\js\work.js"></script>
+    <script src="assets/js/work.js"></script>
     <!--===== MAIN JS =====-->
     <script src="assets/js/main.js"></script>
     <!-- SweetAlert2 CSS -->
@@ -1141,14 +1139,8 @@
         }
     </script>
 
-    <style>
-        /* Add your custom styles for smaller screens here */
-        @media screen and (max-width: 600px) {
-            .custom-popup-class {
-                /* Add custom styles for smaller screens */
-            }
-        }
-    </style>
+    <!--===== MODERN ANIMATIONS =====-->
+    <script src="assets/js/modern-animations.js"></script>
 </body>
 
 </html>
