@@ -15,6 +15,19 @@ class Portfolio3D {
         this.setup3DMouseEffect();
         this.setupCardInteractions();
         this.initializeTypewriter();
+        this.setupScrollProgress();
+    }
+
+    setupScrollProgress() {
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        if (!scrollIndicator) return;
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollIndicator.style.width = scrolled + "%";
+        });
     }
 
     setupTabNavigation() {
@@ -43,27 +56,39 @@ class Portfolio3D {
         const currentContent = document.querySelector(`#${this.currentTab}-tab`);
         const newContent = document.querySelector(`#${tabName}-tab`);
 
-        // Animate transition with 3D flip
-        currentContent.style.transform = 'rotateY(90deg)';
-        currentContent.style.opacity = '0';
+        // Animate transition with 3D flip (Desktop only)
+        if (window.innerWidth > 992) {
+            currentContent.style.transform = 'rotateY(90deg)';
+            currentContent.style.opacity = '0';
 
-        setTimeout(() => {
+            setTimeout(() => {
+                currentContent.classList.remove('active');
+                newContent.classList.add('active');
+
+                // Start new content from opposite rotation
+                newContent.style.transform = 'rotateY(-90deg)';
+                newContent.style.opacity = '0';
+
+                // Trigger reflow
+                newContent.offsetHeight;
+
+                // Animate in
+                requestAnimationFrame(() => {
+                    newContent.style.transform = 'rotateY(0)';
+                    newContent.style.opacity = '1';
+                });
+            }, 300);
+        } else {
+            // Instant swap for Mobile (Max Stability)
+            // Clear inline styles to let CSS handle everything
+            currentContent.style.opacity = '';
+            currentContent.style.transform = '';
             currentContent.classList.remove('active');
+
+            newContent.style.opacity = '';
+            newContent.style.transform = '';
             newContent.classList.add('active');
-
-            // Start new content from opposite rotation
-            newContent.style.transform = 'rotateY(-90deg)';
-            newContent.style.opacity = '0';
-
-            // Trigger reflow
-            newContent.offsetHeight;
-
-            // Animate in
-            requestAnimationFrame(() => {
-                newContent.style.transform = 'rotateY(0)';
-                newContent.style.opacity = '1';
-            });
-        }, 300);
+        }
 
         this.currentTab = tabName;
 
@@ -95,6 +120,15 @@ class Portfolio3D {
         });
 
         const animate = () => {
+            // Disable on mobile/tablet
+            if (window.innerWidth <= 992) {
+                if (this.container) {
+                    this.container.style.transform = 'none';
+                }
+                requestAnimationFrame(animate);
+                return;
+            }
+
             // Smooth interpolation
             currentX += (mouseX - currentX) * 0.1;
             currentY += (mouseY - currentY) * 0.1;
@@ -122,6 +156,7 @@ class Portfolio3D {
 
         cards.forEach(card => {
             card.addEventListener('mouseenter', function () {
+                if (window.innerWidth <= 992) return; // Disable on mobile
                 this.style.transform = 'translateZ(80px) scale(1.05)';
             });
 
@@ -130,6 +165,7 @@ class Portfolio3D {
             });
 
             card.addEventListener('mousemove', function (e) {
+                if (window.innerWidth <= 992) return; // Disable on mobile
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;

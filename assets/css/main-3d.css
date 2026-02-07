@@ -23,10 +23,13 @@
     --glow-purple: 0 0 40px rgba(157, 70, 255, 0.6);
     --glow-pink: 0 0 40px rgba(255, 0, 110, 0.5);
 
-    /* Typography */
+    /* Typography - Premium Settings */
     --font-title: 'Orbitron', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-code: 'JetBrains Mono', monospace;
+    --ls-title: 2px;
+    --ls-body: 0.3px;
+    --lh-body: 1.7;
 
     /* Spacing */
     --container-max-width: 1300px;
@@ -53,11 +56,14 @@ body {
     height: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* Smooth scrolling for all anchors */
     background: var(--color-bg-deep);
     font-family: var(--font-body);
     color: var(--color-text-primary);
     transform-style: preserve-3d;
-    perspective: 1000px;
+    perspective: 1200px;
+    /* Enhanced depth */
     /* 60FPS optimization */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -142,7 +148,7 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform-style: preserve-3d;
@@ -174,8 +180,8 @@ body {
     background: linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-purple));
     border: none;
     color: #fff;
-    transform: translateZ(30px);
-    box-shadow: var(--glow-cyan);
+    transform: translateZ(35px);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.7), 0 0 60px rgba(157, 70, 255, 0.3);
 }
 
 /* ===== TAB CONTAINER - FIXED OVERFLOW ===== */
@@ -283,7 +289,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8rem;
+    letter-spacing: var(--ls-title);
     padding: 0 1rem;
 }
 
@@ -651,8 +657,25 @@ body {
 .timeline-container {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    padding-bottom: 1.2rem;
+    gap: 2.5rem;
+    /* Increased gap for better spacing */
+    padding-bottom: 2rem;
+    position: relative;
+    padding-left: 1.5rem;
+    /* Space for connector */
+}
+
+/* Timeline vertical connector line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    left: 4px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--color-accent-cyan), var(--color-accent-purple), var(--color-accent-pink));
+    box-shadow: 0 0 10px var(--color-accent-cyan);
+    opacity: 0.6;
 }
 
 .experience-card {
@@ -705,9 +728,26 @@ body {
 }
 
 .exp-badge.current {
-    background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-pink));
+    background: linear-gradient(135deg, rgba(157, 70, 255, 0.4), rgba(255, 0, 110, 0.4));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-accent-pink);
     color: #fff;
-    animation: pulse 2s infinite;
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.4);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(255, 0, 110, 0.4);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(255, 0, 110, 0.7);
+        transform: scale(1.05);
+    }
 }
 
 @keyframes pulse {
@@ -825,7 +865,19 @@ body {
     font-size: clamp(1.8rem, 5vw, 2.2rem);
     margin-bottom: 1rem;
     filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.7));
-    animation: float-3d 4s ease-in-out infinite;
+    animation: float-3d-rotate 6s ease-in-out infinite;
+}
+
+@keyframes float-3d-rotate {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(0deg) translateZ(40px);
+    }
+
+    50% {
+        transform: translateY(-15px) rotateY(15deg) translateZ(60px);
+    }
 }
 
 .skill-category h3 {
@@ -980,14 +1032,15 @@ body {
 }
 
 .project-tech span {
-    padding: 0.3rem 0.7rem;
-    background: rgba(157, 70, 255, 0.2);
-    border: 1px solid rgba(157, 70, 255, 0.4);
+    padding: 0.35rem 0.8rem;
+    background: rgba(157, 70, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(157, 70, 255, 0.3);
     border-radius: 14px;
     font-size: 0.65rem;
     color: var(--color-accent-purple);
     font-family: var(--font-code);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .project-tech span:hover {
@@ -1110,10 +1163,53 @@ body {
 /* Tablet */
 @media (max-width: 992px) {
 
-    /* Disable floating animation for stability on mobile */
-    .floating {
-        animation: none !important;
-        transform: none !important;
+    /* ===== MOBILE VERTICAL ALIGNMENT FIX ===== */
+    /* Ensure content starts at the top, not centered */
+    /* ===== MOBILE VERTICAL ALIGNMENT FIX ===== */
+    /* ===== MOBILE VERTICAL ALIGNMENT FIX ===== */
+    /* Ensure content starts at the top, not centered */
+    html,
+    body {
+        overflow-y: auto !important;
+        /* Enable body scroll on mobile */
+        overflow-x: hidden;
+        height: auto !important;
+        /* Allow body to grow */
+    }
+
+    .tab-content.active {
+        display: block !important;
+        /* Force block layout */
+        overflow-y: visible !important;
+        padding-top: 1rem;
+        /* Small top padding */
+        height: auto !important;
+        min-height: 100vh;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: relative !important;
+        /* Switch to relative to allow natural flow */
+    }
+
+    /* Restore specific 3D styles but keep container flat-ish for stability */
+    /* Restore specific 3D styles but keep container flat-ish for stability */
+    .portfolio-3d-container {
+        height: auto !important;
+        min-height: 100vh;
+        overflow-y: visible !important;
+        overflow-x: hidden;
+    }
+
+    /* ===== SCROLLBAR STYLES REMOVED FROM HERE - MOVED TO GLOBAL ===== */
+
+    /* We allow animations now as JS 3D is disabled */
+
+    /* Ensure grid items don't push themselves down */
+    .profile-content {
+        align-items: start;
+        /* Align grid items to top */
+        margin-top: 0;
+        padding-top: 0;
     }
 
     .profile-content {
@@ -1179,11 +1275,31 @@ body {
         min-height: auto;
     }
 
+    /* FORCE MOBILE SCROLLBAR */
+    ::-webkit-scrollbar {
+        width: 8px !important;
+        display: block !important;
+        -webkit-appearance: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--color-accent-cyan) !important;
+        border: 1px solid rgba(0, 0, 0, 0.2) !important;
+        border-radius: 10px;
+    }
+
     .tab-content {
+        display: none;
+        /* Hide inactive tabs to prevent stacking */
         position: relative;
         height: auto;
         min-height: calc(100vh - 110px);
         padding: 1rem;
+    }
+
+    .tab-content.active {
+        display: block !important;
+        /* Ensure active tab is visible */
     }
 
     .profile-content {
@@ -1234,6 +1350,10 @@ body {
     .skills-content,
     .projects-content {
         padding: 1rem;
+        height: auto !important;
+        min-height: auto !important;
+        overflow-y: visible !important;
+        overflow-x: hidden;
     }
 }
 
@@ -1395,4 +1515,49 @@ body {
         max-width: 100%;
         overflow-x: hidden;
     }
+}
+
+/* ===== GLOBAL SCROLLBAR (PREMIUM) ===== */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+    display: block !important;
+    -webkit-appearance: none;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+    background: var(--color-bg-deep);
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--color-accent-cyan), var(--color-accent-purple));
+    border-radius: 10px;
+    border: 2px solid var(--color-bg-deep);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-pink) !important;
+}
+
+/* ===== SCROLL PROGRESS BAR ===== */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-purple), var(--color-accent-pink));
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 15px var(--color-accent-cyan);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-purple) !important;
 }
