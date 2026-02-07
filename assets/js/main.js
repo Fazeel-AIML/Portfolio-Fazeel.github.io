@@ -11,7 +11,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     top: offsetTop,
                     behavior: 'smooth'
                 });
-                
+
                 // Close mobile menu after click
                 const navbarCollapse = document.getElementById('navbarNav');
                 if (navbarCollapse && navbarCollapse.classList.contains('show')) {
@@ -41,7 +41,7 @@ function scrollActive() {
             document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
                 link.classList.remove('active');
             });
-            
+
             const activeLink = document.querySelector('.navbar-nav a[href*=' + sectionId + ']');
             if (activeLink) {
                 activeLink.classList.add('active');
@@ -69,9 +69,9 @@ sr.reveal('.skills__data, .work__img, .contact__input', { interval: 200 });
 document.addEventListener("DOMContentLoaded", function () {
     const titles = ["AI Engineer", "Data Scientist", "MLOps Engineer", "IoT Developer"];
     const titleElement = document.querySelector(".home__title .job-title");
-    
+
     if (!titleElement) return; // Guard clause
-    
+
     let titleIndex = 0;
 
     function typeTitle() {
@@ -115,7 +115,7 @@ const workImages = document.querySelectorAll('.work__img');
 workImages.forEach((workImage) => {
     const description = workImage.getAttribute('data-description');
     const descriptionElement = workImage.querySelector('.work__description');
-    
+
     if (descriptionElement && description) {
         descriptionElement.textContent = description;
     }

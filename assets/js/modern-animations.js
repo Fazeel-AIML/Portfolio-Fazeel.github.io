@@ -1,177 +1,135 @@
-// Modern Animated Background with Neural Network Mouse Interaction
-class ModernBackground {
-    constructor() {
-        this.canvas = document.createElement('canvas');
-        this.ctx = this.canvas.getContext('2d');
-        this.particles = [];
-        this.mouse = { x: -100, y: -100 }; // Start off-screen
+/* ===== MODERN ANIMATIONS & INTERACTIONS ===== */
 
-        // AI Theme colors
-        this.colors = {
-            particle: 'rgba(0, 243, 255, 0.5)', // Cyan glow
-            line: 'rgba(112, 0, 255, 0.15)', // Purple connection
-            mouseLine: 'rgba(0, 243, 255, 0.3)' // Cyan mouse connection
-        };
+// Intersection Observer for scroll-triggered animations
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
 
-        this.init();
-    }
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-    init() {
-        // Setup canvas
-        this.canvas.id = 'animated-bg';
-        this.canvas.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; 
-            pointer-events: none;
-        `;
-        // Position canvas over the video but under the content
-        // Video is z-index: -2, Overlay is z-index: -1
-        // We'll set this to z-index: 0 but with pointer-events: none so clicks pass through
-        this.canvas.style.zIndex = '0';
-
-        document.body.insertBefore(this.canvas, document.body.firstChild);
-
-        this.resize();
-        this.createParticles();
-        this.animate();
-
-        // Event listeners
-        window.addEventListener('resize', () => this.resize());
-        document.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
-        });
-        document.addEventListener('mouseleave', () => {
-            this.mouse.x = -100;
-            this.mouse.y = -100;
-        });
-    }
-
-    resize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.createParticles(); // Re-create nicely distributed particles
-    }
-
-    createParticles() {
-        this.particles = [];
-        // Density based on screen size
-        const particleCount = Math.min(100, Math.floor((window.innerWidth * window.innerHeight) / 15000));
-
-        for (let i = 0; i < particleCount; i++) {
-            this.particles.push({
-                x: Math.random() * this.canvas.width,
-                y: Math.random() * this.canvas.height,
-                size: Math.random() * 2 + 1, // varied sizes
-                speedX: (Math.random() - 0.5) * 0.4, // Slow drift
-                speedY: (Math.random() - 0.5) * 0.4,
-                opacity: Math.random() * 0.5 + 0.3
-            });
-        }
-    }
-
-    drawParticles() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        this.particles.forEach(particle => {
-            // Update position
-            particle.x += particle.speedX;
-            particle.y += particle.speedY;
-
-            // Bounce off edges
-            if (particle.x < 0 || particle.x > this.canvas.width) particle.speedX *= -1;
-            if (particle.y < 0 || particle.y > this.canvas.height) particle.speedY *= -1;
-
-            // Draw node
-            this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            this.ctx.fillStyle = this.colors.particle;
-            this.ctx.shadowBlur = 10;
-            this.ctx.shadowColor = this.colors.particle;
-            this.ctx.fill();
-            this.ctx.shadowBlur = 0;
-
-            // Connect to other particles (Neural connections)
-            this.particles.forEach(otherParticle => {
-                const dx = particle.x - otherParticle.x;
-                const dy = particle.y - otherParticle.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 120) {
-                    this.ctx.beginPath();
-                    this.ctx.strokeStyle = this.colors.line;
-                    this.ctx.lineWidth = 0.5;
-                    this.ctx.moveTo(particle.x, particle.y);
-                    this.ctx.lineTo(otherParticle.x, otherParticle.y);
-                    this.ctx.stroke();
-                }
-            });
-
-            // Connect to Mouse (Interactive Neural Activation)
-            const dx = this.mouse.x - particle.x;
-            const dy = this.mouse.y - particle.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 180) { // Interaction radius
-                this.ctx.beginPath();
-                this.ctx.strokeStyle = this.colors.mouseLine;
-                this.ctx.lineWidth = 1; // Stronger connection to user
-                this.ctx.moveTo(particle.x, particle.y);
-                this.ctx.lineTo(this.mouse.x, this.mouse.y);
-                this.ctx.stroke();
-
-                // Slight attraction to mouse (Magnetic effect)
-                if (distance > 50) {
-                    particle.x += dx * 0.005;
-                    particle.y += dy * 0.005;
-                }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
             }
         });
-    }
+    }, observerOptions);
 
-    animate() {
-        this.drawParticles();
-        requestAnimationFrame(() => this.animate());
-    }
+    elements.forEach(el => observer.observe(el));
+};
+
+// Initialize on DOM load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+} else {
+    animateOnScroll();
 }
 
-// Scroll animations
-class ScrollAnimations {
-    constructor() {
-        this.options = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        this.init();
-    }
+// Smooth active nav link highlighting on scroll
+const updateActiveNavLink = () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
-    init() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    observer.unobserve(entry.target); // Only animate once
+    let scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 100;
+        const sectionId = current.getAttribute('id');
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
                 }
             });
-        }, this.options);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-    }
-}
-
-// Initialize
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        new ModernBackground();
-        new ScrollAnimations();
+        }
     });
+};
+
+// Debounce function for performance
+const debounce = (func, wait = 10) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+// Apply debounced scroll listener
+window.addEventListener('scroll', debounce(updateActiveNavLink, 10));
+
+// Add hover tilt effect to project cards (subtle 3D effect)
+const addTiltEffect = () => {
+    const cards = document.querySelectorAll('.work__item, .glass-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+};
+
+// Initialize tilt effect when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addTiltEffect);
 } else {
-    new ModernBackground();
-    new ScrollAnimations();
+    addTiltEffect();
 }
+
+// Preload critical images for better performance
+const preloadImages = () => {
+    const criticalImages = [
+        'assets/img/Me.png' // Profile picture
+    ];
+
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+};
+
+preloadImages();
+
+// Enhanced navbar scroll behavior
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+
+const handleNavbarScroll = () => {
+    const currentScroll = window.pageYOffset;
+
+    // Add background blur when scrolled
+    if (currentScroll > 50) {
+        navbar?.classList.add('scrolled');
+    } else {
+        navbar?.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+};
+
+window.addEventListener('scroll', debounce(handleNavbarScroll, 10));

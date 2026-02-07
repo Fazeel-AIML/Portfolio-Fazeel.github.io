@@ -1,1146 +1,635 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior: smooth;">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- =====CONSOLIDATED CSS===== -->
+    <link rel="stylesheet" href="assets/css/main-3d.css">
 
     <!-- =====MODERN GOOGLE FONTS===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Add Fancybox CSS/JS CDN in your <head> and before closing </body> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-    <link rel="stylesheet" href="assets/css/work_css.css">
-    <link rel="stylesheet" href="assets/css/bg_css.css">
-    <link rel="stylesheet" href="assets/css/modern-styles.css">
-    <title>Portfolio - Fazeel Asghar</title>
-    <style>
-        * {
-            margin: 0pc;
-        }
 
-        /* width */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #3506f0;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #14025a;
-        }
-
-        .flex-row {
-            display: flex;
-            flex-direction: row;
-            padding: 20px;
-            justify-content: center;
-            position: relative;
-            right: 100px;
-        }
-
-        .nav__logo {
-            width: 150px;
-            /* Set the desired width */
-            margin-right: 150px;
-            /* Adjust margin as needed */
-        }
-
-        .home__img {
-            width: 60%;
-            /* Increase top margin to create space */
-            margin-left: 530px;
-            ;
-        }
-
-        .home__title {
-            padding-bottom: 100px;
-            font-size: 40px;
-            margin: 20px 0;
-            /* Increase top and bottom margin to create space */
-        }
-
-        .container-fluid {
-            margin-bottom: -100px;
-        }
-
-        .title__container {
-            position: relative;
-        }
-
-        .work__img {
-            width: 300px;
-            /* Set the desired width */
-            height: 200px;
-            /* Set the desired height */
-            object-position: center bottom;
-            /* Align to the bottom of the container */
-        }
-
-        .work__img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center bottom;
-            /* Align to the bottom of the container */
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .more-button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .more-button {
-            cursor: pointer;
-            background-color: #25a8db;
-            color: #fff;
-            padding: 10px 100px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .more-button:hover {
-            background-color: #2a0ba7;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @media screen and (max-width: 950px) {
-
-            /* Adjust the layout for screens with a maximum width of 950 pixels */
-            body {
-                margin: 0px;
-            }
-
-            .container-fluid {
-                height: 900px;
-            }
-
-            /* Updated styles for the work section to create a 2x2 grid */
-            .work__container {
-                display: grid;
-                text-align: center;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            .work__description {
-                font-size: 15px;
-            }
-
-            .work__img {
-                width: 155px;
-                /* Set the desired width */
-                height: 100px;
-                /* Set the desired height */
-                object-position: center bottom;
-                /* Align to the bottom of the container */
-            }
-
-            .work__img img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center bottom;
-                /* Align to the bottom of the container */
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .work__description {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                background: rgba(0, 0, 0, 0.7);
-                color: #fff;
-                opacity: 0;
-                transition: opacity 0.3s;
-            }
-
-            .home {
-                width: 100%;
-                height: 90vh;
-                z-index: -1;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .work__img:hover .work__description {
-                opacity: 1;
-            }
-
-            .flex-row {
-                display: flex;
-                flex-direction: column;
-            }
-
-            /* Additional styles for the home section to maintain previous styling */
-            .home__img {
-                position: relative;
-                left: 100px;
-                width: 60%;
-                height: 100%;
-
-                padding-top: 20px;
-                padding-bottom: -80px;
-            }
-
-            .home__title {
-                font-size: 30px;
-                /* Remove the specific margin for mobile */
-                text-align: center;
-                /* Add text justification */
-            }
-
-            .title__container {
-                text-align: center;
-                /* Center the text */
-                margin-left: 10px;
-                margin-top: 5px;
-            }
-
-            .job-title {
-                text-align: justify;
-            }
-
-            .home__social {
-                display: flex;
-                flex-direction: row;
-                margin-top: -50px;
-                margin-left: 5px;
-            }
-
-            .nav__logo {
-                width: 80px;
-                /* Set the desired width */
-                margin-right: 750px;
-                /* Adjust margin as needed */
-            }
-
-            .more-button-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 20px;
-            }
-
-            .more-button {
-                cursor: pointer;
-                background-color: #25a8db;
-                color: #fff;
-                padding: 10px 50px;
-                border: none;
-                border-radius: 5px;
-                font-size: 16px;
-                transition: background-color 0.3s ease-in-out;
-            }
-
-            .more-button:hover {
-                background-color: #2a0ba7;
-            }
-
-            .hidden {
-                display: none;
-            }
-
-            /* width */
-            ::-webkit-scrollbar {
-                width: 10px;
-            }
-
-            /* Track */
-            ::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
-
-            /* Handle */
-            ::-webkit-scrollbar-thumb {
-                background: #3506f0;
-            }
-
-            /* Handle on hover */
-            ::-webkit-scrollbar-thumb:hover {
-                background: #14025a;
-            }
-
-            .skills__bar {
-                height: 8px;
-                border-radius: 5px;
-                background-color: #dcdcdc;
-                position: relative;
-            }
-
-            .skills__bar {
-                height: 8px;
-                border-radius: 5px;
-                background-color: #dcdcdc;
-                position: relative;
-            }
-
-            .container-fluid {
-                margin-bottom: -50px;
-            }
-
-            .skills__container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                /* Flexible grid */
-                gap: 20px;
-                /* Space between skills */
-                justify-content: center;
-                align-items: center;
-            }
-
-            .work__container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 20px;
-            }
-
-            .work__item {
-                position: relative;
-                overflow: hidden;
-                border-radius: 10px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s;
-            }
-
-            .work__img {
-                text-align: center;
-                background: #fff;
-                padding: 10px;
-            }
-
-            .work__img img {
-                width: 100%;
-                height: auto;
-                border-radius: 10px;
-            }
-
-            .work__title {
-                margin-top: 10px;
-                font-size: 18px;
-                text-align: center;
-                font-weight: bold;
-            }
-
-            .work__hover {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                color: white;
-                padding: 20px;
-                opacity: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                transition: opacity 0.3s;
-            }
-
-            .work__hover p {
-                margin: 5px 0;
-            }
-
-            .work__hover video,
-            .work__hover img {
-                width: 80%;
-                max-height: 150px;
-                margin-top: 10px;
-                border-radius: 8px;
-            }
-
-            .work__item:hover .work__hover {
-                opacity: 1;
-            }
-
-            .work__item:hover {
-                transform: scale(1.05);
-            }
-        }
-
-        .cv-button {
-            margin-left: 100px;
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
-            color: white;
-            background: rgba(255, 255, 255, 0.15);
-            /* Glass effect */
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 30px;
-            text-decoration: none;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Hover Effect */
-        .cv-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Active Effect */
-        .cv-button:active {
-            transform: translateY(1px);
-        }
-
-        /* Responsive Styling */
-        @media (max-width: 768px) {
-            .cv-button {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cv-button {
-                padding: 8px 18px;
-                font-size: 13px;
-            }
-        }
-
-        /* =============== FADED VIDEO BACKGROUND =============== */
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            /* Keeps it behind the content */
-            opacity: 0.1;
-            /* Adjust the fade level (0 = invisible, 1 = full visible) */
-            filter: brightness(90%);
-            /* Reduce brightness & slightly blur for a soft effect */
-        }
-
-        .github-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            background-color: #333;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .github-btn img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .github-btn:hover {
-            background-color: #555;
-        }
-
-        .work__container .work__img {
-            width: 400px;
-            height: 300px;
-            object-fit: initial;
-            object-position: center bottom;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        #experience {
-            padding: 60px 30px;
-            background-color: #111827;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #000000;
-        }
-
-        #experience h2 {
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 60px;
-            color: #38bdf8;
-            border-bottom: 2px solid #38bdf8;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        #experience .section-title-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        .experience-item {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            background-color: #111827;
-            border-left: 6px solid #38bdf8;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 50px;
-            box-shadow: 0 8px 28px rgba(56, 189, 248, 0.12);
-        }
-
-        .experience-text {
-            width: 100%;
-        }
-
-        .experience-text h3 {
-            font-size: 1.8em;
-            margin-bottom: 14px;
-            color: #38bdf8;
-        }
-
-        .experience-text p {
-            font-size: 1.1em;
-            line-height: 1.75;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-        }
-
-        .experience-media {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-        }
-
-        .experience-media img,
-        .experience-media video {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 14px;
-            cursor: pointer;
-            box-shadow: 0 4px 18px rgba(56, 189, 248, 0.25);
-            transition: transform 0.3s ease;
-        }
-
-        .experience-media img:hover,
-        .experience-media video:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.35);
-        }
-    </style>
+    <title>Fazeel Asghar | AI Engineer</title>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70">
-    <video class="video-bg" autoplay muted loop play-inline>
-        <source src="assets/img/AI_bg.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
+<body>
+    <!-- AI Background Canvases -->
+    <canvas id="neural-canvas" class="neural-canvas"></canvas>
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
 
-    <!-- Animated background will be injected by modern-animations.js (can be combined or used as fallback) -->
-    <main class="l-main">
+    <!-- Main 3D Container -->
+    <div class="portfolio-3d-container">
 
-        <!-- Bootstrap Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
-            style='background: linear-gradient(45deg, #4a90e2, #6a5acd); box-shadow: 0 2px 10px rgba(0,0,0,0.3);'>
-            <div class="container">
-                <!-- Brand / Logo -->
-                <a class="navbar-brand fw-bold" href="#home">Fazeel</a>
-
-                <!-- Navbar Toggler Button for Mobile -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navbar Links -->
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#experience">Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#work">Work</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="cv-button" href="assets/cv/Fazeel Resume.pdf" download>📄 CV/Resume</a>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <!-- Tab Navigation -->
+        <nav class="tab-navigation">
+            <button class="tab-btn active" data-tab="profile">
+                <i class='bx bx-home-alt'></i>
+                <span>Profile</span>
+            </button>
+            <button class="tab-btn" data-tab="experience">
+                <i class='bx bx-briefcase-alt'></i>
+                <span>Experience</span>
+            </button>
+            <button class="tab-btn" data-tab="skills">
+                <i class='bx bx-code-alt'></i>
+                <span>Skills</span>
+            </button>
+            <button class="tab-btn" data-tab="projects">
+                <i class='bx bx-folder'></i>
+                <span>Projects</span>
+            </button>
         </nav>
 
-        <!--===== HOME =====-->
+        <!-- Tab Contents -->
+        <div class="tab-container">
 
-        <!-- Bootstrap Home Section -->
-        <section class="container-fluid" id="home">
-            <div class="row align-items-center" style="min-height: 85vh;">
-                <!-- Social Links (Left Side) -->
-                <div class="col-md-1 d-flex flex-column align-items-center social-links">
-                    <a href="https://www.linkedin.com/in/fazeelasghar/" target="_blank" class="text-white fs-3 mb-3">
-                        <i class='bx bxl-linkedin'></i>
-                    </a>
-                    <a href="https://github.com/Fazeel-AIML" target="_blank" class="text-white fs-3">
-                        <i class='bx bxl-github'></i>
-                    </a>
+            <!-- PROFILE TAB - NEW LAYOUT: Info Left | Video Center | Image Right -->
+            <div id="profile-tab" class="tab-content active">
+                <div class="profile-content">
+
+                    <!-- LEFT: Profile Info Card -->
+                    <div class="profile-left">
+                        <div class="profile-info card-3d">
+                            <!-- Title/Subtitle moved to Video Container -->
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/fazeelasghar/" target="_blank"
+                                    class="social-icon floating">
+                                    <i class='bx bxl-linkedin'></i>
+                                </a>
+                                <a href="https://github.com/Fazeel-AIML" target="_blank" class="social-icon floating">
+                                    <i class='bx bxl-github'></i>
+                                </a>
+                                <a href="mailto:fasghar40@gmail.com" class="social-icon floating">
+                                    <i class='bx bx-envelope'></i>
+                                </a>
+                            </div>
+                            <p class="profile-description">
+                                Leading AI innovation at 7KC, specializing in Voice Agents, GenAI systems, and Robotics
+                                integration. Building the future of AI-powered solutions.
+                            </p>
+
+                            <div class="profile-actions">
+                                <a href="assets/cv/Fazeel Resume.pdf" download class="btn-primary btn-3d">
+                                    <i class='bx bx-download'></i>
+                                    Download CV
+                                </a>
+                                <a href="#projects" class="btn-secondary btn-3d" onclick="switchTabManual('projects')">
+                                    View Projects
+                                    <i class='bx bx-right-arrow-alt'></i>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- CENTER: AI Video (BIGGER) -->
+                    <div class="profile-center">
+                        <div class="ai-video-container floating" style="animation-delay: 0.2s">
+                            <!-- Overlay Text -->
+                            <div class="video-overlay-text">
+                                <h1 class="profile-title">
+                                    <span class="greeting">Hello, I'm</span>
+                                    <span class="name-highlight">Fazeel Asghar</span>
+                                </h1>
+                                <h2 class="profile-subtitle">
+                                    <span class="typewriter-text">Lead AI Engineer</span>
+                                    <span class="cursor">|</span>
+                                </h2>
+                            </div>
+
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/img/AI_bg.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">
+                                <i class='bx bx-brain'></i> AI in Action
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Profile Image -->
+                    <div class="profile-right floating">
+                        <div class="profile-blob-container">
+                            <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask0" mask-type="alpha">
+                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                                </mask>
+                                <g mask="url(#mask0)">
+                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                                    <image class="home__blob-img" x="12" y="18" href="assets/img/Me.png"
+                                        loading="eager" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
-                <!-- Text Content (Center/Left) -->
-                <!-- Text Content (Center/Left) -->
-                <div class="col-md-6">
-                    <div class="home__data animate-on-scroll">
-                        <div class="home__content-box glass-card">
-                            <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Fazeel.</span></h1>
-                            <div class="title__container"><span class="job-title">AI Engineer</span>
+            <!-- EXPERIENCE TAB -->
+            <div id="experience-tab" class="tab-content">
+                <div class="experience-content">
+                    <h2 class="section-title floating">
+                        <i class='bx bx-briefcase title-icon'></i>
+                        Experience Journey
+                    </h2>
+
+                    <div class="timeline-container">
+                        <!-- 7KC -->
+                        <div class="experience-card card-3d floating" style="animation-delay: 0.1s">
+                            <div class="exp-header">
+                                <div class="exp-company">
+                                    <h3>7KC</h3>
+                                    <span class="exp-badge current">Current</span>
+                                </div>
+                                <span class="exp-period">May 2025 - Present</span>
+                            </div>
+                            <h4 class="exp-position">Lead AI Engineer</h4>
+                            <p class="exp-location"><i class='bx bx-map'></i> On Site - Lahore</p>
+                            <ul class="exp-highlights">
+                                <li>Leading AI team across multiple projects - Voice Agent for cold calling with
+                                    conversational sessions</li>
+                                <li>Integrating AI systems with Unitree Go2 Pro robotic platform</li>
+                                <li>Developed GenAI resume parser for job-hunting platform</li>
+                                <li>Built AI email classifier (urgent vs normal) with auto-notification</li>
+                                <li>Led AI-powered recruitment: CV parsing, JD matching, automated shortlisting, AI bot
+                                    interviews</li>
+                                <li>Developed Dynamic RAG Web-chatbot</li>
+                                <li>Utilized N8N for event-driven automation (payments, orders, documents, training)
+                                </li>
+                                <li>Developed Gaze-tracking system with team</li>
+                            </ul>
+                        </div>
+
+                        <!-- UWS -->
+                        <div class="experience-card card-3d floating" style="animation-delay: 0.2s">
+                            <div class="exp-header">
+                                <div class="exp-company">
+                                    <h3>UWS (University of the West of Scotland)</h3>
+                                </div>
+                                <span class="exp-period">July 2024 - Aug 2024</span>
+                            </div>
+                            <h4 class="exp-position">Research Associate (Robotics)</h4>
+                            <p class="exp-location"><i class='bx bx-map'></i> On Site - Scotland, Paisley</p>
+                            <ul class="exp-highlights">
+                                <li>Designed & developed AI-Integrated Smart Wheelchair with IoT vital signs monitoring
+                                </li>
+                                <li>Implemented Obstacle Detection & Avoidance using YOLOv8n Lite, Arduino UNO,
+                                    ultrasonic sensors</li>
+                                <li>Engineered Real-Time Health Monitoring with remote MySQL database</li>
+                                <li>Sponsored by Safe-RH initiative</li>
+                            </ul>
+                        </div>
+
+                        <!-- Safe-RH -->
+                        <div class="experience-card card-3d floating" style="animation-delay: 0.3s">
+                            <div class="exp-header">
+                                <div class="exp-company">
+                                    <h3>Safe-RH</h3>
+                                </div>
+                                <span class="exp-period">Aug 2022 - July 2024</span>
+                            </div>
+                            <h4 class="exp-position">Junior AI Engineer</h4>
+                            <p class="exp-location"><i class='bx bx-map'></i> On Site - Bahawalpur</p>
+                            <ul class="exp-highlights">
+                                <li>Developed Scalable AI-Driven Rural Health Monitoring System</li>
+                                <li>Check it out: <a href="https://safe-rh.eu/" target="_blank">safe-rh.eu</a></li>
+                                <li>Integrated Raspberry Pi 2 with medical devices for data processing</li>
+                                <li>Built system for doctors/paramedics to review patient data</li>
+                            </ul>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="experience-card card-3d education-card floating" style="animation-delay: 0.4s">
+                            <div class="exp-header">
+                                <div class="exp-company">
+                                    <h3><i class='bx bxs-graduation'></i> Islamia University Bahawalpur</h3>
+                                </div>
+                            </div>
+                            <h4 class="exp-position">Bachelor of Science - Information Technology</h4>
+                            <p class="exp-location">IT Department</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SKILLS TAB -->
+            <div id="skills-tab" class="tab-content">
+                <div class="skills-content">
+                    <h2 class="section-title floating">
+                        <i class='bx bx-code-block title-icon'></i>
+                        Technical Arsenal
+                    </h2>
+
+                    <div class="skills-grid">
+                        <!-- AI & ML -->
+                        <div class="skill-category card-3d floating">
+                            <div class="skill-icon"><i class='bx bx-brain'></i></div>
+                            <h3>AI & Machine Learning</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Voice Agents</span>
+                                <span class="skill-tag">Agentic AI</span>
+                                <span class="skill-tag">LangChain</span>
+                                <span class="skill-tag">LangGraph</span>
+                                <span class="skill-tag">LlamaIndex</span>
+                                <span class="skill-tag">Langsmith</span>
+                                <span class="skill-tag">RAG</span>
+                                <span class="skill-tag">Fine-Tuning</span>
+                                <span class="skill-tag">LLMs</span>
+                                <span class="skill-tag">LORA/QLORA</span>
+                                <span class="skill-tag">Hugging Face</span>
+                            </div>
+                        </div>
+
+                        <!-- MLOps & Cloud -->
+                        <div class="skill-category card-3d floating" style="animation-delay: 0.1s">
+                            <div class="skill-icon"><i class='bx bx-cloud'></i></div>
+                            <h3>MLOps & Cloud</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MLflow</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">CI/CD</span>
+                                <span class="skill-tag">AWS EC2</span>
+                                <span class="skill-tag">AWS ECR</span>
+                                <span class="skill-tag">AWS S3</span>
+                                <span class="skill-tag">IAM</span>
+                                <span class="skill-tag">Lambda</span>
+                                <span class="skill-tag">API Gateway</span>
+                            </div>
+                        </div>
+
+                        <!-- Development -->
+                        <div class="skill-category card-3d floating" style="animation-delay: 0.2s">
+                            <div class="skill-icon"><i class='bx bx-code-alt'></i></div>
+                            <h3>Development</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Django</span>
+                                <span class="skill-tag">FastAPI</span>
+                                <span class="skill-tag">Flask</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">N8N</span>
+                            </div>
+                        </div>
+
+                        <!-- Robotics & IoT -->
+                        <div class="skill-category card-3d floating" style="animation-delay: 0.3s">
+                            <div class="skill-icon"><i class='bx bx-chip'></i></div>
+                            <h3>Robotics & IoT</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Robotics</span>
+                                <span class="skill-tag">Edge AI</span>
+                                <span class="skill-tag">IoT Sensors</span>
+                                <span class="skill-tag">Computer Vision</span>
+                                <span class="skill-tag">YOLOv8</span>
+                                <span class="skill-tag">OpenCV</span>
+                                <span class="skill-tag">Raspberry Pi</span>
+                            </div>
+                        </div>
+
+                        <!-- Specialized -->
+                        <div class="skill-category card-3d floating" style="animation-delay: 0.4s">
+                            <div class="skill-icon"><i class='bx bx-target-lock'></i></div>
+                            <h3>Specialized Skills</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">AI-Native Retail</span>
+                                <span class="skill-tag">Predictive Modeling</span>
+                                <span class="skill-tag">Frontier Models</span>
+                                <span class="skill-tag">Gaze Tracking</span>
+                                <span class="skill-tag">Ngrok</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Image (Right Side) -->
-                <div class="col-md-5">
-                    <div class="home__img animate-on-scroll">
-                        <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0" mask-type="alpha">
-                                <path
-                                    d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
-                            </mask>
-                            <g mask="url(#mask0)">
-                                <path
-                                    d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
-                                <image class="home__blob-img" x="40" y="10" href="assets/img/Me.png" />
-                            </g>
-                        </svg>
-                    </div>
-                </div>
             </div>
-        </section>
-        <hr>
-        <!--===== WORK SECTION =====-->
-        <section class="work section animate-on-scroll" id="work"
-            style="text-align: center; padding: 70px 20px; justify-content: center; align-items:center;">
-            <h2 class="section-title gradient-text">Projects</h2>
 
-            <div class="work__container" style="align-items: center; justify-content: center;">
-                <!-- Project 5 -->
-                <div class="work__item glass-card animate-on-scroll" onclick="openModal('modal5')">
-                    <img class="work__img" src="assets/img/auto_car - Copy.GIF" alt="Autonomous Car Simulation">
-                    <h3 class="work__title">Autonomous Car Simulation</h3>
-                    <a href="https://github.com/Fazeel-AIML/Autonomous_Small_Prototype" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 1 -->
-                <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/Signora.gif" alt="Signora">
-                    <h3 class="work__title">SignoraAI - Sign Recognition for Disabled</h3>
-                    <a href="https://github.com/Fazeel-AIML/SignoraAI" class="github-btn" target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 1 -->
-                <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/Medical_Chatbot2.gif" alt="Medical_Chatbot">
-                    <h3 class="work__title">Medical - Chatbot with Voice</h3>
-                    <a href="https://github.com/Fazeel-AIML/Voice_Medical_Chatbot.git" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 1 -->
-                <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/AYA.gif" alt="Email Agent">
-                    <h3 class="work__title">Email Classifier and Ticket Geneartor Agent</h3>
-                    <a href="https://github.com/Fazeel-AIML/Support-Ticket-Resolution-Agent" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/AYA.gif" alt="Aya Chatbot">
-                    <h3 class="work__title">Aya-The-Emotion-Detection-ChatBot</h3>
-                    <a href="https://github.com/Fazeel-AIML/Sentiment-Analysis-Chatbot" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 1 -->
-                <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/Blogs_Chatbot.gif" alt="Blogs Chatbot">
-                    <h3 class="work__title">Live-RAG-Blogs-ChatBot</h3>
-                    <a href="https://github.com/Fazeel-AIML/Blogs_Chatbot" class="github-btn" target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
+            <!-- PROJECTS TAB -->
+            <div id="projects-tab" class="tab-content">
+                <div class="projects-content">
+                    <h2 class="section-title floating">
+                        <i class='bx bx-rocket title-icon'></i>
+                        Featured Projects
+                    </h2>
 
-                <!-- Project 1 -->
-                <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/Medical_Chatbot.gif" alt="Medical Chatbot">
-                    <h3 class="work__title">Fine-Tuned-Microsoft-PHI-Medical-Data</h3>
-                    <a href="https://github.com/Fazeel-AIML/Medical_Chatbot_PHI" class="github-btn" target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 1 -->
-                <div class="work__item" onclick="openModal('modal1')">
-                    <img class="work__img" src="assets/img/Tumor_Detection.gif" alt="Tumor Detection">
-                    <h3 class="work__title">Tumor Detection (Transfer Learning)</h3>
-                    <a href="https://github.com/Fazeel-AIML/Brain_Tumor_Detection" class="github-btn" target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 2 -->
-                <div class="work__item" onclick="openModal('modal2')">
-                    <img class="work__img" src="assets/img/veh_ins - Copy.GIF" alt="Vehicle Insurance Prediction">
-                    <h3 class="work__title">Production Ready Vehicle Insurance Prediction (MLOPS)</h3>
-                    <a href="https://github.com/Fazeel-AIML/Vehicle_Insurance_MLOps_Deployed" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="work__item" onclick="openModal('modal3')">
-                    <img class="work__img" src="assets/img/weather_forcast.GIF"
-                        alt="End-to-End MLOps Weather forecasting">
-                    <h3 class="work__title">Production Ready Weather forecasting (MLOps)</h3>
-                    <a href="https://github.com/Fazeel-AIML/Weather_Forcast_Deployed_MLOps" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="work__item" onclick="openModal('modal4')">
-                    <img class="work__img" src="assets/img/llm_uni - Copy.GIF" alt="Fine-Tuned GPT LLM">
-                    <h3 class="work__title">Fine-Tuned GPT LLM University Queries</h3>
-                    <a href="https://github.com/Fazeel-AIML/Fine_Tuned_LLM" class="github-btn" target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-
-
-
-                <!-- Project 6 -->
-                <div class="work__item" onclick="openModal('modal6')">
-                    <img class="work__img" src="assets/img/peoplecount.GIF"
-                        alt="Shopping Mall Escalator People Counter">
-                    <h3 class="work__title">Shopping Mall Escalator People Counter</h3>
-                    <a href="https://github.com/Fazeel-AIML/People_Counter" class="github-btn" target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 8 -->
-                <div class="work__item" onclick="openModal('modal8')">
-                    <img class="work__img" src="assets/img/CarCounter.gif" alt="Car Counter Yolov8n ">
-                    <h3 class="work__title">Car Counter using Yolov8n </h3>
-                    <a href="https://github.com/Fazeel-AIML/Cars_Counter" class="github-btn" target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="work__item" onclick="openModal('modal7')">
-                    <img class="work__img" src="assets/img/skin_disease.gif" alt="Skin Disease Classification">
-                    <h3 class="work__title">Skin Disease Classification (CNN)</h3>
-                    <a href="https://github.com/Fazeel-AIML/Skin-Disease-Classification" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-                <!-- Project 9 -->
-                <div class="work__item" onclick="openModal('modal9')">
-                    <img class="work__img" src="assets/img/Tickek.gif" alt="QR Code Ticket Reader and Generator">
-                    <h3 class="work__title">QR Code Ticket Reader and Generator</h3>
-                    <a href="https://github.com/Fazeel-AIML/QR_Code_Ticket_Generator" class="github-btn"
-                        target="_blank">
-                        <img src="assets/img/github-icon.png" alt="GitHub Icon"> Source Code
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== MODALS ===== -->
-        <!-- ===== MODALS ===== -->
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal2')">&times;</span>
-
-                <div class="modal-body">
-                    <!-- Media Gallery -->
-                    <div class="media-gallery">
-                        <div class="media-slider">
-                            <!-- Media dynamically inserted here -->
+                    <div class="projects-grid">
+                        <!-- Project 1: Autonomous Car -->
+                        <div class="project-card card-3d floating">
+                            <div class="project-image">
+                                <img src="assets/img/auto_car - Copy.GIF" alt="Autonomous Car" loading="lazy">
+                                <div class="project-overlay">
+                                    <span class="project-tag">Final Year</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Autonomous Car Simulation</h3>
+                                <p class="project-desc">
+                                    Obstacle detection, real-time GPS navigation with Django web interface. Raspberry Pi
+                                    + OpenCV + ML.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Raspberry Pi</span>
+                                    <span>OpenCV</span>
+                                    <span>Django</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Autonomous_Small_Prototype" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
                         </div>
-                        <button class="prev" onclick="changeSlide(-1, 'modal2')">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1, 'modal2')">&#10095;</button>
-                    </div>
 
-                    <!-- Project Details -->
-                    <div class="details">
-                        <h2>🚗 Vehicle Insurance Prediction</h2>
-                        <p class="subtitle">AI-powered model for predicting insurance claims with high accuracy.</p>
-                        <p><strong>Tech Stack:</strong> MLflow, Docker, GitHub Actions, AWS ECS, Python</p>
-                        <p><strong>Impact:</strong> Automated deployment, real-time predictions, and efficiency
-                            improvements.</p>
-                        <ul>
-                            <li>✅ Developed an advanced ML pipeline for accurate predictions.</li>
-                            <li>⚡ Integrated with cloud for real-time processing.</li>
-                            <li>📈 Improved claim prediction efficiency by 30%.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal4" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal4')">&times;</span>
-
-                <div class="modal-body">
-                    <!-- Media Gallery -->
-                    <div class="media-gallery">
-                        <div class="media-slider">
-                            <!-- Media dynamically inserted here -->
+                        <!-- Project 2: SignoraAI -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.1s">
+                            <div class="project-image">
+                                <img src="assets/img/Signora.gif" alt="SignoraAI" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>SignoraAI - Sign Recognition</h3>
+                                <p class="project-desc">Sign language recognition system for disabled individuals using
+                                    deep learning.</p>
+                                <div class="project-tech">
+                                    <span>Computer Vision</span>
+                                    <span>Deep Learning</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/SignoraAI" class="project-link" target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
                         </div>
-                        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-                    </div>
 
-                    <!-- Project Details -->
-                    <div class="details">
-                        <h2>🤖 Fine-Tuned LLM GPT Small Model for Islamia University Basic Queries</h2>
-                        <p class="subtitle">Customized AI model for answering student queries related to university
-                            policies, courses, and services.</p>
-                        <p><strong>Tech Stack:</strong> GPT, Hugging Face, LoRA, PyTorch, FastAPI</p>
-                        <p><strong>Impact:</strong> Automated query resolution, reduced faculty workload, and improved
-                            student engagement.</p>
-                        <ul>
-                            <li>✅ Developed a lightweight fine-tuned GPT model for university-specific queries.</li>
-                            <li>⚡ Deployed via FastAPI for real-time chatbot responses.</li>
-                            <li>📉 Reduced faculty workload by 40% by automating FAQs.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="modal5" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal5')">&times;</span>
-
-                <div class="modal-body">
-                    <!-- Media Gallery -->
-                    <div class="media-gallery">
-                        <div class="media-slider">
-                            <!-- Media dynamically inserted here -->
+                        <!-- Project 3: Medical Chatbot Voice -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.2s">
+                            <div class="project-image">
+                                <img src="assets/img/Medical_Chatbot2.gif" alt="Medical Chatbot" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Medical Chatbot with Voice</h3>
+                                <p class="project-desc">Voice-enabled medical consultation chatbot with RAG
+                                    architecture.</p>
+                                <div class="project-tech">
+                                    <span>LangChain</span>
+                                    <span>Voice AI</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Voice_Medical_Chatbot.git" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
                         </div>
-                        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-                    </div>
 
-                    <!-- Project Details -->
-                    <div class="details">
-                        <h2>🚕 Autonomous Small Car Prototype (Taxi Simulation)</h2>
-                        <p class="subtitle">A self-driving small-scale taxi simulation using AI and IoT.</p>
-                        <p><strong>Tech Stack:</strong> Raspberry Pi, OpenCV, GPS (Neo6M V2), Ultrasonic Sensors, Python
-                        </p>
-                        <p><strong>Impact:</strong> Enabled autonomous navigation, real-time path planning, and obstacle
-                            avoidance.</p>
-                        <ul>
-                            <li>✅ Designed and built an autonomous car prototype capable of navigating predefined
-                                routes.</li>
-                            <li>⚡ Integrated computer vision for object detection and real-time decision-making.</li>
-                            <li>📍 Used GPS and ultrasonic sensors for precise location tracking and obstacle avoidance.
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal1')">&times;</span>
-
-                <div class="modal-body">
-                    <!-- Media Gallery -->
-                    <div class="media-gallery">
-                        <div class="media-slider">
+                        <!-- Project 4: Email Classifier Agent -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.3s">
+                            <div class="project-image">
+                                <img src="assets/img/AYA.gif" alt="Email Agent" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Email Classifier & Ticket Generator</h3>
+                                <p class="project-desc">Agentic system for support ticket resolution with automated
+                                    classification.</p>
+                                <div class="project-tech">
+                                    <span>Agentic AI</span>
+                                    <span>NLP</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Support-Ticket-Resolution-Agent"
+                                    class="project-link" target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
                         </div>
-                        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-                    </div>
 
-                    <!-- Project Details -->
-                    <div class="details">
-                        <h2>🧠 Tumor Detection</h2>
-                        <p class="subtitle">AI-powered system for early tumor diagnosis using deep learning.</p>
-                        <p><strong>Tech Stack:</strong> TensorFlow, Keras, OpenCV, Python</p>
-                        <p><strong>Impact:</strong> Improved medical imaging analysis for accurate and early tumor
-                            detection.</p>
-                        <ul>
-                            <li>✅ Developed a deep learning model to detect and classify tumors in MRI scans.</li>
-                            <li>⚡ Utilized OpenCV for image preprocessing and enhancement.</li>
-                            <li>📊 Enhanced diagnostic accuracy, assisting doctors in early detection.</li>
-                        </ul>
-                    </div>
+                        <!-- Project 5: Aya Emotion Detection -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.4s">
+                            <div class="project-image">
+                                <img src="assets/img/AYA.gif" alt="Aya Chatbot" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Aya - Emotion Detection ChatBot</h3>
+                                <p class="project-desc">Sentiment analysis powered chatbot for emotional understanding.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Sentiment Analysis</span>
+                                    <span>NLP</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Sentiment-Analysis-Chatbot" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
 
+                        <!-- Project 6: Live RAG Blogs -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.5s">
+                            <div class="project-image">
+                                <img src="assets/img/Blogs_Chatbot.gif" alt="Blogs Chatbot" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Live RAG Blogs ChatBot</h3>
+                                <p class="project-desc">Real-time RAG system for blog content querying and exploration.
+                                </p>
+                                <div class="project-tech">
+                                    <span>RAG</span>
+                                    <span>LangChain</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Blogs_Chatbot" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 7: Fine-Tuned PHI -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.6s">
+                            <div class="project-image">
+                                <img src="assets/img/Medical_Chatbot.gif" alt="PHI Medical" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Fine-Tuned Microsoft PHI - Medical</h3>
+                                <p class="project-desc">Fine-tuned PHI model on medical data for healthcare queries.</p>
+                                <div class="project-tech">
+                                    <span>Fine-Tuning</span>
+                                    <span>Microsoft PHI</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Medical_Chatbot_PHI" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 8: Tumor Detection -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.7s">
+                            <div class="project-image">
+                                <img src="assets/img/Tumor_Detection.gif" alt="Tumor Detection" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Tumor Detection (Transfer Learning)</h3>
+                                <p class="project-desc">Brain tumor classification using transfer learning techniques.
+                                </p>
+                                <div class="project-tech">
+                                    <span>Transfer Learning</span>
+                                    <span>CNN</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Brain_Tumor_Detection" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 9: Vehicle Insurance MLOps -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.8s">
+                            <div class="project-image">
+                                <img src="assets/img/veh_ins - Copy.GIF" alt="Vehicle Insurance" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Vehicle Insurance Prediction (MLOps)</h3>
+                                <p class="project-desc">Production-ready ML system with CI/CD, Docker, and AWS
+                                    deployment.</p>
+                                <div class="project-tech">
+                                    <span>MLOps</span>
+                                    <span>Docker</span>
+                                    <span>AWS</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Vehicle_Insurance_MLOps_Deployed"
+                                    class="project-link" target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 10: Weather Forecast MLOps -->
+                        <div class="project-card card-3d floating" style="animation-delay: 0.9s">
+                            <div class="project-image">
+                                <img src="assets/img/weather_forcast.GIF" alt="Weather Forecast" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Weather Forecasting (MLOps)</h3>
+                                <p class="project-desc">End-to-end MLOps pipeline for weather prediction deployed on
+                                    AWS.</p>
+                                <div class="project-tech">
+                                    <span>MLOps</span>
+                                    <span>CI/CD</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Weather_Forcast_Deployed_MLOps"
+                                    class="project-link" target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 11: Fine-Tuned GPT -->
+                        <div class="project-card card-3d floating" style="animation-delay: 1.0s">
+                            <div class="project-image">
+                                <img src="assets/img/llm_uni - Copy.GIF" alt="Fine-Tuned GPT" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Fine-Tuned GPT LLM - University</h3>
+                                <p class="project-desc">Custom-trained LLM for university-specific query handling.</p>
+                                <div class="project-tech">
+                                    <span>Fine-Tuning</span>
+                                    <span>GPT</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Fine_Tuned_LLM" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 12: People Counter -->
+                        <div class="project-card card-3d floating" style="animation-delay: 1.1s">
+                            <div class="project-image">
+                                <img src="assets/img/peoplecount.GIF" alt="People Counter" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Shopping Mall Escalator Counter</h3>
+                                <p class="project-desc">Real-time people counting for shopping mall escalators using
+                                    YOLOv8.</p>
+                                <div class="project-tech">
+                                    <span>YOLOv8</span>
+                                    <span>Object Detection</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/People_Counter" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 13: Car Counter -->
+                        <div class="project-card card-3d floating" style="animation-delay: 1.2s">
+                            <div class="project-image">
+                                <img src="assets/img/CarCounter.gif" alt="Car Counter" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Car Counter using YOLOv8n</h3>
+                                <p class="project-desc">Vehicle detection and counting system with tracking
+                                    capabilities.</p>
+                                <div class="project-tech">
+                                    <span>YOLOv8n</span>
+                                    <span>Tracking</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Cars_Counter" class="project-link"
+                                    target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 14: Skin Disease Classification -->
+                        <div class="project-card card-3d floating" style="animation-delay: 1.3s">
+                            <div class="project-image">
+                                <img src="assets/img/skin_disease.gif" alt="Skin Disease" loading="lazy">
+                            </div>
+                            <div class="project-info">
+                                <h3>Skin Disease Classification (CNN)</h3>
+                                <p class="project-desc">Deep learning model for automated skin disease diagnosis.</p>
+                                <div class="project-tech">
+                                    <span>CNN</span>
+                                    <span>Deep Learning</span>
+                                </div>
+                                <a href="https://github.com/Fazeel-AIML/Skin-Disease-Classification"
+                                    class="project-link" target="_blank">
+                                    <i class='bx bxl-github'></i> View Code
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
         </div>
-        <hr>
-        <section id="experience">
-            <div class="section-title-wrapper">
-                <h2>Experience</h2>
-            </div>
-            <!-- 7KC Experience -->
-            <div class="experience-item glass-card animate-on-scroll">
-                <div class="experience-text">
-                    <h3>7 Kings Code – AI Developer - <i style="color: #ffffff;"> Current</i></h3>
-                    <p>Developed a multi-session conversational AI agent, integrated with the Unitree Go2 Pro quadruped
-                        robot, enabling adaptive interaction and task execution.</p>
-                    <p>Built a GenAI-based resume parser for a proprietary job-hunting platform, and deployed an
-                        autonomous email triage agent to classify messages and notify the support team accordingly.
-                        Link: https://jobsshopper.com/</p>
-                    <p>Trained reinforcement learning agents for decision-making tasks and Agentic AI systems for
-                        autonomous workflows in real-world scenarios.</p>
-                </div>
+    </div>
 
-            </div>
-
-            <!-- Safe RH Experience -->
-            <div class="experience-item glass-card animate-on-scroll">
-                <div class="experience-text">
-                    <h3>Safe RH – Junior AI Engineer</h3>
-                    <p>Worked on the SAFE-RH Rural Health Monitoring System in collaboration with the University of the
-                        West of Scotland and Université de Lorraine. Developed AI models for health risk prediction,
-                        integrated vital signs monitoring into IoT devices, and contributed to a Smart Wheelchair with
-                        obstacle detection.</p>
-                    <p>Technologies used: Python, Raspberry Pi, OpenCV, TensorFlow, and AWS. Contributed to real-time
-                        dashboards and streamlined model deployment via MLOps.</p>
-                </div>
-                <div class="experience-media">
-                    <!-- Images -->
-                    <a data-fancybox="safe-rh" href="assets\img\SafeRH-Letter.png">
-                        <img src="assets\img\SafeRH-Letter.png" alt="Safe RH Image 1" />
-                    </a>
-                    <a data-fancybox="safe-rh" href="assets\img\Safe_RH_IMG.png">
-                        <img src="assets\img\Safe_RH_IMG.png" alt="Safe RH Image 2" />
-                    </a>
-                    <a data-fancybox="safe-rh" href="assets\img\Safe_RH2.png">
-                        <img src="assets\img\Safe_RH2.png" alt="Safe RH Image 3" />
-                    </a>
-
-                    <!-- Videos (with poster + controls to make them visible) -->
-                    <a data-fancybox="safe-rh" href="assets\img\SafeRh (1).jfif">
-                        <img src="assets\img\SafeRh (1).jfif" controls poster="images/thumb1.jpg">
-                    </a>
-                    <a data-fancybox="safe-rh" href="assets\img\SafeRh (2).jfif">
-                        <img src="assets\img\SafeRh (2).jfif" controls poster="images/thumb2.jpg">
-                    </a>
-                </div>
-            </div>
-
-            <!-- Research Internship Experience -->
-            <div class="experience-item glass-card animate-on-scroll">
-                <div class="experience-text">
-                    <h3>Research Internship (AI) – University of the West of Scotland</h3>
-                    <p>Worked on a research project titled "Smart Wheelchair with Obstacle Detection & Vital Signs
-                        Monitoring". Built object detection pipelines, integrated sensor fusion for safety, and
-                        presented findings to international research teams.</p>
-                    <p>Optimized edge AI on Raspberry Pi, published deployment docs, and delivered results during global
-                        academic workshops.</p>
-                </div>
-                <div class="experience-media">
-                    <a data-fancybox="internship" href="assets\img\Research_Cert.jfif"><img
-                            src="assets\img\Research_Cert.jfif" alt="Research 1" /></a>
-                    <a data-fancybox="internship" href="assets\img\Research (1).jfif"><img
-                            src="assets\img\Research (1).jfif" alt="Research 1" /></a>
-                    <a data-fancybox="internship" href="assets\img\Research (2).jfif"><img
-                            src="assets\img\Research (2).jfif" alt="Research 2" /></a>
-                    <a data-fancybox="internship" href="assets\img\Research.MP4"><video src="assets\img\Research.MP4"
-                            muted></video></a>
-                    <a data-fancybox="internship" href="assets\img\Research.png"><img src="assets\img\Research.png"
-                            muted></a>
-                    <a data-fancybox="internship" href="assets\img\Pres_Pic.JPG"><img src="assets\img\Pres_Pic.JPG"
-                            muted></a>
-                </div>
-            </div>
-        </section>
-
-        <!--===== SKILLS =====-->
-        <section class="skills section animate-on-scroll" id="skills">
-            <h2 class="section-title gradient-text">Skills</h2>
-
-            <div class="skills__container bd-grid">
-
-                <div class="skills__intro">
-                    <p class="skills__text animate-on-scroll">
-                        Passionate and results-driven professional with expertise in Artificial Intelligence, MLOps, and
-                        Cloud Computing.
-                        Proven track record of delivering impactful results through a strong skill set in the following
-                        areas:
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="skills__grid">
-
-                <div class="skills__data animate-on-scroll">
-                    <div class="skills__names">
-                        <iconify-icon icon="akar-icons:python-fill" width="28" height="28"></iconify-icon>
-                        <span class="skills__name">Python</span>
-                    </div>
-                    <p class="skills__description">Django, Flask, QTPY,
-                        OpenCV, Socket, FastAPI</p>
-                    <div class="skills__percentage">85%</div>
-                </div>
-
-                <div class="skills__data animate-on-scroll">
-                    <div class="skills__names">
-                        <iconify-icon icon="mdi:database" width="28" height="28"></iconify-icon>
-                        <span class="skills__name">AI/ML Engineering</span>
-                    </div>
-                    <p class="skills__description">GenAI, HuggingFace,
-                        LLMs, LangChain, Pandas, Numpy, CNN, YOLO, Matplotlib, Seaborn, ChromaDB, FAISS, PineCone,
-                        PostgresSQL, MySQL, MongoDB Atlas, TensorFlow, PyTorch, Scikit-learn, Keras, OpenCV,
-                        Streamlit</p>
-                    <div class="skills__percentage">85%</div>
-                </div>
-
-                <div class="skills__data animate-on-scroll">
-                    <div class="skills__names">
-                        <iconify-icon icon="mdi:docker" width="28" height="28"></iconify-icon>
-                        <span class="skills__name">MLOps</span>
-                    </div>
-                    <p class="skills__description">Docker, Kubernetes,
-                        CI/CD, GitHub Actions</p>
-                    <div class="skills__percentage">75%</div>
-                </div>
-
-                <div class="skills__data animate-on-scroll">
-                    <div class="skills__names">
-                        <iconify-icon icon="mdi:cloud" width="28" height="28"></iconify-icon>
-                        <span class="skills__name">Cloud Computing (AWS)</span>
-                    </div>
-                    <p class="skills__description">AWS EC2, AWS S3, AWS ECR, AWS Lambda</p>
-                    <div class="skills__percentage">70%</div>
-                </div>
-
-            </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!--===== FOOTER =====-->
-    <footer class="footer">
-        <p class="footer__title">Fazeel</p>
-        <div class="footer__social">
-            <a href="https://www.facebook.com/fazeel.asghar.71/" target="_blank" class="footer__icon"><i
-                    class='bx bxl-facebook'></i></a>
-            <a href="https://www.instagram.com/its_fazeel_/?hl=en" target="_blank" class="footer__icon"><i
-                    class='bx bxl-instagram'></i></a>
-            <a href="https://twitter.com/its_fazeel___" target="_blank" class="footer__icon"><i
-                    class='bx bxl-twitter'></i></a>
-        </div>
-        <p class="footer__copy">&#169; Fazeel-AIML. All rigths reserved</p>
-    </footer>
-    <!--===== SCROLL REVEAL =====-->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="assets/js/work.js"></script>
-    <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
-    <!-- SweetAlert2 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script src="assets/js/neural-network.js"></script>
+    <script src="assets/js/particle-system.js"></script>
+    <script src="assets/js/3d-interactions.js"></script>
 
     <script>
-        let clickCount = 0;
-        const totalHiddenContainers = document.querySelectorAll('.work__container.hidden').length;
-
-        function appendMore() {
-            const hiddenContainers = document.querySelectorAll('.work__container.hidden');
-
-            hiddenContainers.forEach(container => {
-                container.classList.remove('hidden');
-            });
-
-            clickCount++;
-
-            if (clickCount === 2) {
-                let popupWidth = '80%'; // Adjust the width as needed
-
-                // Adjust width for smaller screens
-                if (window.innerWidth <= 600) {
-                    popupWidth = '90%';
-                }
-
-                Swal.fire({
-                    title: "You've reached the end!",
-                    icon: 'success',
-                    confirmButtonColor: '#2a0ba7',
-                    width: popupWidth, // Set the width
-                    customClass: {
-                        popup: 'custom-popup-class' // Add a custom class for further styling
-                    }
-                });
-
-                // Reset clickCount to 0
-                clickCount = 0;
-            }
+        // Helper function for manual tab switching
+        function switchTabManual(tabName) {
+            const event = new MouseEvent('click', { bubbles: true });
+            document.querySelector(`[data-tab="${tabName}"]`).dispatchEvent(event);
         }
     </script>
-
-    <!--===== MODERN ANIMATIONS =====-->
-    <script src="assets/js/modern-animations.js"></script>
 </body>
 
 </html>
