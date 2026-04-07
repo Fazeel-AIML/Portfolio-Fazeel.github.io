@@ -4,10 +4,86 @@ from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE
-from PIL import Image
+from PIL import Image, ImageSequence, ImageFile
+import io
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+def optimize_image(img_path):
+    """
+    Optimizes an image or GIF to reduce file size significantly.
+    Targets < 100MB overall presentation size.
+    """
+    try:
+        file_size = os.path.getsize(img_path)
+        
+        with Image.open(img_path) as img:
+            orig_format = img.format
+            
+            # 1. Handle Static Images (JPG, PNG, etc.)
+            if orig_format != 'GIF':
+                max_width = 1000
+                if img.width > max_width or file_size > 1_000_000:
+                    ratio = max_width / float(img.width)
+                    new_height = int(float(img.height) * ratio)
+                    img = img.resize((max_width, new_height), Image.Resampling.LANCZOS)
+                
+                if img.mode in ("RGBA", "P"):
+                    img = img.convert("RGB")
+                
+                output = io.BytesIO()
+                img.save(output, format="JPEG", quality=70, optimize=True)
+                output.seek(0)
+                return output
+
+            # 2. Handle Animated GIFs
+            else:
+                # If GIF is already under 3MB, don't re-process (save time/quality)
+                if file_size < 3_000_000:
+                    with open(img_path, 'rb') as f:
+                        return io.BytesIO(f.read())
+
+                gif_max_width = 450
+                frames = []
+                frame_count = 0
+                for frame in ImageSequence.Iterator(img):
+                    # Skip 2 out of every 3 frames for massive savings on large GIFs
+                    if frame_count % 3 == 0:
+                        f = frame.copy().convert('RGB')
+                        if f.width > gif_max_width:
+                            ratio = gif_max_width / float(f.width)
+                            new_size = (gif_max_width, int(float(f.height) * ratio))
+                            f = f.resize(new_size, Image.Resampling.BOX) # Faster resize
+                        
+                        f = f.convert('P', palette=Image.Palette.ADAPTIVE, colors=64)
+                        frames.append(f)
+                    frame_count += 1
+                
+                output = io.BytesIO()
+                if len(frames) > 0:
+                    frames[0].save(
+                        output,
+                        format='GIF',
+                        save_all=True,
+                        append_images=frames[1:],
+                        optimize=True,
+                        loop=0,
+                        duration=img.info.get('duration', 100) * 3
+                    )
+                    output.seek(0)
+                    return output
+                else:
+                    with open(img_path, 'rb') as f:
+                        return io.BytesIO(f.read())
+
+    except Exception as e:
+        print(f"Error optimizing {img_path}: {e}")
+        with open(img_path, 'rb') as f:
+            return io.BytesIO(f.read())
 
 def add_image_with_aspect_ratio(slide, img_path, left, top, max_width, max_height):
     try:
+        # Get dimensions for aspect ratio calculation
         with Image.open(img_path) as img:
             orig_width, orig_height = img.size
         
@@ -24,7 +100,10 @@ def add_image_with_aspect_ratio(slide, img_path, left, top, max_width, max_heigh
         img_left = left.inches + (max_width.inches - final_width) / 2
         img_top = top.inches + (max_height.inches - final_height) / 2
 
-        slide.shapes.add_picture(img_path, Inches(img_left), Inches(img_top), width=Inches(final_width), height=Inches(final_height))
+        # Optimize the image/GIF before adding to PPTX
+        optimized_img_stream = optimize_image(img_path)
+        
+        slide.shapes.add_picture(optimized_img_stream, Inches(img_left), Inches(img_top), width=Inches(final_width), height=Inches(final_height))
     except Exception as e:
         print(f"Error adding {img_path}: {e}")
 
@@ -273,8 +352,12 @@ def build_presentation():
         else:
             print(f"File not found: {img_path}")
             
-    # Save the PPTX
-    output_path = os.path.join(base_dir, "Deep_Learning_Projects_7KingsCode_V4.pptx")
+    # Save the PPTX to the location expected by the web application
+    docs_dir = os.path.join(base_dir, "assets", "docs")
+    if not os.path.exists(docs_dir):
+        os.makedirs(docs_dir)
+        
+    output_path = os.path.join(docs_dir, "All_Projects_Portfolio_Fazeel_Asghar.pptx")
     prs.save(output_path)
     print(f"Presentation saved to: {output_path}")
 
