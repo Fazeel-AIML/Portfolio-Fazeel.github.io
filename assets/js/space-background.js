@@ -27,27 +27,49 @@ class SpaceBackground {
     }
 
     init() {
-        this.resize(); // This handles stars
+        this.resize(); 
         
-        // Initialize objects inside the canvas at specific positions
-        
-        // Astronauts: One top left, one top right
-        this.spawnAstronaut(this.canvas.width * 0.10, this.canvas.height * 0.15);
-        this.spawnAstronaut(this.canvas.width * 0.90, this.canvas.height * 0.15);
+        // Use percentages for cross-device consistency
+        this.spawnAstronaut(0.10, 0.15);
+        this.spawnAstronaut(0.90, 0.15);
 
-        // Meteoroids: 5 unique positions
-        this.spawnAsteroid(this.canvas.width * 0.15, this.canvas.height * 0.50); // middle center left
-        this.spawnAsteroid(this.canvas.width * 0.85, this.canvas.height * 0.50); // middle center right
-        this.spawnAsteroid(this.canvas.width * 0.50, this.canvas.height * 0.85); // middle center bottom
-        this.spawnAsteroid(this.canvas.width * 0.10, this.canvas.height * 0.85); // bottom extreme left
-        this.spawnAsteroid(this.canvas.width * 0.50, this.canvas.height * 0.15); // middle top
+        this.spawnAsteroid(0.15, 0.50);
+        this.spawnAsteroid(0.85, 0.50);
+        this.spawnAsteroid(0.50, 0.85);
+        this.spawnAsteroid(0.10, 0.85);
+        this.spawnAsteroid(0.50, 0.15);
     }
 
     resize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        // Don't recreate objects here otherwise they jump, just recreate stars
+        const dpr = window.devicePixelRatio || 1;
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+
+        this.canvas.width = this.width * dpr;
+        this.canvas.height = this.height * dpr;
+        this.canvas.style.width = this.width + 'px';
+        this.canvas.style.height = this.height + 'px';
+
+        // Scale context drawing once - no need to multiply by DPR in every draw call
+        this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        this.updateObjectScales();
         this.createStars(); 
+    }
+
+    updateObjectScales() {
+        // Base scale Factor: ensures elements are relative to screen size but never tiny
+        // Scaling based on smaller dimension for consistency across orientations
+        const screenFactor = Math.min(this.width, this.height) / 1000;
+        
+        this.astronauts.forEach(a => {
+            a.scaleFactor = 0.13 * screenFactor;
+        });
+        
+        this.meteoroids.forEach(m => {
+            // Keep their relative variation but scaled to screen
+            m.scaleFactor = m.baseScale * screenFactor;
+        });
     }
 
     setupEventListeners() {
@@ -58,8 +80,8 @@ class SpaceBackground {
         this.stars = [];
         for (let i = 0; i < this.starCount; i++) {
             this.stars.push({
-                x: Math.random() * this.canvas.width,
-                y: Math.random() * this.canvas.height,
+                x: Math.random() * this.width,
+                y: Math.random() * this.height,
                 radius: Math.random() * 1.5 + 0.5,
                 alpha: Math.random(),
                 alphaChange: (Math.random() * 0.02) + 0.005,
@@ -69,7 +91,7 @@ class SpaceBackground {
     }
 
     createShootingStar() {
-        const startX = Math.random() * this.canvas.width * 1.5;
+        const startX = Math.random() * this.width * 1.5;
         const startY = 0;
         const length = Math.random() * 100 + 30;
         const speed = Math.random() * 15 + 10;
@@ -81,36 +103,43 @@ class SpaceBackground {
         });
     }
 
-    spawnAsteroid(startX = null, startY = null) {
+    spawnAsteroid(pctX = null, pctY = null) {
         if (this.meteoroids.length < this.maxMeteoroids) {
-            let cx = startX !== null ? startX : Math.random() * this.canvas.width;
-            let cy = startY !== null ? startY : Math.random() * this.canvas.height;
+            let cx = pctX !== null ? pctX * this.width : Math.random() * this.width;
+            let cy = pctY !== null ? pctY * this.height : Math.random() * this.height;
             
             const speedX = (Math.random() * 0.05 + 0.02) * (Math.random() > 0.5 ? 1 : -1);
             const speedY = (Math.random() * 0.05 + 0.02) * (Math.random() > 0.5 ? 1 : -1);
-            const scale = Math.random() * 0.05 + 0.08; 
+            
+            const baseScale = Math.random() * 0.05 + 0.08; 
+            const screenFactor = Math.min(this.width, this.height) / 1000;
+            
             const rotationSpeed = (Math.random() - 0.5) * 0.005;
 
             this.meteoroids.push({
                 x: cx, y: cy, vx: speedX, vy: speedY, 
                 rotation: Math.random() * Math.PI * 2, 
-                rotationSpeed: rotationSpeed, scale: scale
+                rotationSpeed: rotationSpeed, 
+                baseScale: baseScale,
+                scaleFactor: baseScale * screenFactor
             });
         }
     }
 
-    spawnAstronaut(startX = null, startY = null) {
+    spawnAstronaut(pctX = null, pctY = null) {
         if (this.astronauts.length < this.maxAstronauts) {
-            let cx = startX !== null ? startX : Math.random() * this.canvas.width;
-            let cy = startY !== null ? startY : Math.random() * this.canvas.height;
+            let cx = pctX !== null ? pctX * this.width : Math.random() * this.width;
+            let cy = pctY !== null ? pctY * this.height : Math.random() * this.height;
 
             const speedX = (Math.random() * 0.05 + 0.02) * (Math.random() > 0.5 ? 1 : -1);
             const speedY = (Math.random() * 0.05 + 0.02) * (Math.random() > 0.5 ? 1 : -1);
-            const scale = 0.13; 
+            
+            const screenFactor = Math.min(this.width, this.height) / 1000;
 
             this.astronauts.push({
                 x: cx, y: cy, vx: speedX, vy: speedY, 
-                rotation: Math.random() * Math.PI * 2, scale: scale
+                rotation: Math.random() * Math.PI * 2, 
+                scaleFactor: 0.13 * screenFactor
             });
         }
     }
@@ -121,8 +150,8 @@ class SpaceBackground {
             star.alpha += star.alphaChange * star.direction;
             if (star.alpha <= 0) {
                 star.alpha = 0; star.direction = 1;
-                star.x = Math.random() * this.canvas.width;
-                star.y = Math.random() * this.canvas.height;
+                star.x = Math.random() * this.width;
+                star.y = Math.random() * this.height;
             } else if (star.alpha >= 1) {
                 star.alpha = 1; star.direction = -1;
             }
@@ -133,7 +162,7 @@ class SpaceBackground {
         for (let i = this.shootingStars.length - 1; i >= 0; i--) {
             let ss = this.shootingStars[i];
             ss.x += ss.vx; ss.y += ss.vy;
-            if (ss.x < -200 || ss.y > this.canvas.height + 200) {
+            if (ss.x < -200 || ss.y > this.height + 200) {
                 this.shootingStars.splice(i, 1);
             }
         }
@@ -146,11 +175,11 @@ class SpaceBackground {
         for (let i = this.astronauts.length - 1; i >= 0; i--) {
             let a = this.astronauts[i];
             a.x += a.vx; a.y += a.vy;
-            a.rotation += 0.001; // slow tumble
+            a.rotation += 0.001;
             
-            // Stay inside bounding box, bounce off edges
-            if (a.x < 80 || a.x > this.canvas.width - 80) a.vx *= -1;
-            if (a.y < 80 || a.y > this.canvas.height - 80) a.vy *= -1;
+            const padding = 60;
+            if (a.x < padding || a.x > this.width - padding) a.vx *= -1;
+            if (a.y < padding || a.y > this.height - padding) a.vy *= -1;
         }
 
         // Update meteoroids
@@ -159,14 +188,14 @@ class SpaceBackground {
             m.x += m.vx; m.y += m.vy;
             m.rotation += m.rotationSpeed;
             
-            // Stay inside bounding box, bounce off edges
-            if (m.x < 80 || m.x > this.canvas.width - 80) m.vx *= -1;
-            if (m.y < 80 || m.y > this.canvas.height - 80) m.vy *= -1;
+            const padding = 60;
+            if (m.x < padding || m.x > this.width - padding) m.vx *= -1;
+            if (m.y < padding || m.y > this.height - padding) m.vy *= -1;
         }
     }
 
     draw() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.clearRect(0, 0, this.width, this.height);
 
         // Draw twinkling stars
         this.stars.forEach(star => {
@@ -203,7 +232,7 @@ class SpaceBackground {
                 this.ctx.save();
                 this.ctx.translate(a.x, a.y);
                 this.ctx.rotate(a.rotation);
-                this.ctx.scale(a.scale, a.scale);
+                this.ctx.scale(a.scaleFactor, a.scaleFactor);
                 this.ctx.drawImage(this.astronautImg, -this.astronautImg.width / 2, -this.astronautImg.height / 2);
                 this.ctx.restore();
             });
@@ -215,7 +244,7 @@ class SpaceBackground {
                 this.ctx.save();
                 this.ctx.translate(m.x, m.y);
                 this.ctx.rotate(m.rotation);
-                this.ctx.scale(m.scale, m.scale);
+                this.ctx.scale(m.scaleFactor, m.scaleFactor);
                 this.ctx.drawImage(this.meteoroidImg, -this.meteoroidImg.width / 2, -this.meteoroidImg.height / 2);
                 this.ctx.restore();
             });
