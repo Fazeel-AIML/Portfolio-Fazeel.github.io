@@ -135,8 +135,8 @@ class Portfolio3D {
 
             // Apply subtle 3D rotation to container
             if (this.container) {
-                const rotateX = currentY * 3;
-                const rotateY = currentX * 3;
+                const rotateX = currentY * 1.5;
+                const rotateY = currentX * 1.5;
 
                 this.container.style.transform = `
           perspective(2000px)
@@ -157,11 +157,11 @@ class Portfolio3D {
         cards.forEach(card => {
             card.addEventListener('mouseenter', function () {
                 if (window.innerWidth <= 992) return; // Disable on mobile
-                this.style.transform = 'translateZ(80px) scale(1.05)';
+                this.style.transform = 'translateZ(50px) scale(1.02)';
             });
 
             card.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateZ(50px) scale(1)';
+                this.style.transform = 'translateZ(30px) scale(1)';
             });
 
             card.addEventListener('mousemove', function (e) {
@@ -173,14 +173,14 @@ class Portfolio3D {
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
 
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
 
                 this.style.transform = `
-          translateZ(80px) 
+          translateZ(50px) 
           rotateX(${rotateX}deg) 
           rotateY(${rotateY}deg)
-          scale(1.05)
+          scale(1.02)
         `;
             });
         });

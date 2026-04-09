@@ -1552,3 +1552,68 @@ body::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent-purple) !important;
 }
+
+/* ===== PRIVATE REPOSITORY STYLING ===== */
+.private-repo-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(157, 70, 255, 0.1) 100%);
+    border: 1px solid rgba(255, 0, 110, 0.4);
+    border-radius: 8px;
+    color: var(--color-accent-pink);
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 0, 110, 0.15), inset 0 0 10px rgba(255, 0, 110, 0.05);
+    transition: all 0.3s ease;
+}
+
+.private-repo-badge:hover {
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.2) 0%, rgba(157, 70, 255, 0.2) 100%);
+    border-color: var(--color-accent-pink);
+    box-shadow: 0 5px 20px rgba(255, 0, 110, 0.3), inset 0 0 15px rgba(255, 0, 110, 0.1);
+    transform: translateY(-2px);
+}
+
+.private-repo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 0, 110, 0.5);
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent-pink);
+    font-family: var(--font-title);
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+    pointer-events: none;
+}
+
+.private-repo-overlay i {
+    font-size: 1.2rem;
+}
+
+/* Ensure the image container has relative positioning */
+.private-project-image {
+    position: relative;
+}
+
+.private-project-image img {
+    opacity: 0.5; /* Dim the image heavily to emphasize it's a private repo */
+    filter: grayscale(40%);
+}
