@@ -1,4 +1,4 @@
-/* ===== 3D INTERACTIONS & TAB NAVIGATION ===== */
+/* ===== INTERACTIONS, TAB NAVIGATION & PROJECT FILTERING ===== */
 
 class Portfolio3D {
     constructor() {
@@ -12,8 +12,7 @@ class Portfolio3D {
 
     init() {
         this.setupTabNavigation();
-        this.setup3DMouseEffect();
-        this.setupCardInteractions();
+        this.setupProjectFilters();
         this.initializeTypewriter();
         this.setupScrollProgress();
     }
@@ -22,11 +21,16 @@ class Portfolio3D {
         const scrollIndicator = document.getElementById('scrollIndicator');
         if (!scrollIndicator) return;
 
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            scrollIndicator.style.width = scrolled + "%";
+        const updateBar = (el) => {
+            const scrollTop = el.scrollTop ?? (document.body.scrollTop || document.documentElement.scrollTop);
+            const scrollHeight = (el.scrollHeight ?? document.documentElement.scrollHeight) - (el.clientHeight ?? document.documentElement.clientHeight);
+            const scrolled = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            scrollIndicator.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
+        };
+
+        window.addEventListener('scroll', () => updateBar(document.documentElement), { passive: true });
+        this.tabContents.forEach(content => {
+            content.addEventListener('scroll', () => updateBar(content), { passive: true });
         });
     }
 
@@ -45,143 +49,45 @@ class Portfolio3D {
     switchTab(tabName) {
         if (tabName === this.currentTab) return;
 
-        // Remove active class from all tabs
         this.tabs.forEach(tab => tab.classList.remove('active'));
-
-        // Add active class to clicked tab
         const activeTab = document.querySelector(`[data-tab="${tabName}"]`);
-        activeTab.classList.add('active');
+        if (activeTab) activeTab.classList.add('active');
 
-        // Get current and new content
         const currentContent = document.querySelector(`#${this.currentTab}-tab`);
         const newContent = document.querySelector(`#${tabName}-tab`);
 
-        // Animate transition with 3D flip (Desktop only)
-        if (window.innerWidth > 992) {
-            currentContent.style.transform = 'rotateY(90deg)';
-            currentContent.style.opacity = '0';
-
-            setTimeout(() => {
-                currentContent.classList.remove('active');
-                newContent.classList.add('active');
-
-                // Start new content from opposite rotation
-                newContent.style.transform = 'rotateY(-90deg)';
-                newContent.style.opacity = '0';
-
-                // Trigger reflow
-                newContent.offsetHeight;
-
-                // Animate in
-                requestAnimationFrame(() => {
-                    newContent.style.transform = 'rotateY(0)';
-                    newContent.style.opacity = '1';
-                });
-            }, 300);
-        } else {
-            // Instant swap for Mobile (Max Stability)
-            // Clear inline styles to let CSS handle everything
-            currentContent.style.opacity = '';
-            currentContent.style.transform = '';
-            currentContent.classList.remove('active');
-
-            newContent.style.opacity = '';
-            newContent.style.transform = '';
+        if (currentContent) currentContent.classList.remove('active');
+        if (newContent) {
             newContent.classList.add('active');
+            newContent.scrollTop = 0;
         }
 
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        if (scrollIndicator) scrollIndicator.style.width = '0%';
+
         this.currentTab = tabName;
-
-        // Update particle color based on tab
-        this.updateThemeColor(tabName);
     }
 
-    updateThemeColor(tabName) {
-        const colors = {
-            profile: '--color-accent-cyan',
-            experience: '--color-accent-purple',
-            skills: '--color-accent-pink',
-            projects: '--color-accent-cyan'
-        };
+    setupProjectFilters() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card[data-category]');
 
-        document.documentElement.style.setProperty('--active-color',
-            `var(${colors[tabName] || colors.profile})`);
-    }
+        if (!filterBtns.length || !projectCards.length) return;
 
-    setup3DMouseEffect() {
-        let mouseX = 0;
-        let mouseY = 0;
-        let currentX = 0;
-        let currentY = 0;
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-        document.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-            mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-        });
-
-        const animate = () => {
-            // Disable on mobile/tablet
-            if (window.innerWidth <= 992) {
-                if (this.container) {
-                    this.container.style.transform = 'none';
-                }
-                requestAnimationFrame(animate);
-                return;
-            }
-
-            // Smooth interpolation
-            currentX += (mouseX - currentX) * 0.1;
-            currentY += (mouseY - currentY) * 0.1;
-
-            // Apply subtle 3D rotation to container
-            if (this.container) {
-                const rotateX = currentY * 1.5;
-                const rotateY = currentX * 1.5;
-
-                this.container.style.transform = `
-          perspective(2000px)
-          rotateX(${-rotateX}deg)
-          rotateY(${rotateY}deg)
-        `;
-            }
-
-            requestAnimationFrame(animate);
-        };
-
-        animate();
-    }
-
-    setupCardInteractions() {
-        const cards = document.querySelectorAll('.card-3d, .experience-card, .skill-orb, .project-card');
-
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function () {
-                if (window.innerWidth <= 992) return; // Disable on mobile
-                this.style.transform = 'translateZ(50px) scale(1.02)';
-            });
-
-            card.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateZ(30px) scale(1)';
-            });
-
-            card.addEventListener('mousemove', function (e) {
-                if (window.innerWidth <= 992) return; // Disable on mobile
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 25;
-                const rotateY = (centerX - x) / 25;
-
-                this.style.transform = `
-          translateZ(50px) 
-          rotateX(${rotateX}deg) 
-          rotateY(${rotateY}deg)
-          scale(1.02)
-        `;
+                const filter = btn.dataset.filter;
+                projectCards.forEach(card => {
+                    const categories = (card.dataset.category || '').split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
     }
@@ -189,10 +95,10 @@ class Portfolio3D {
     initializeTypewriter() {
         const titles = [
             'Lead AI Engineer',
-            'MLOps Specialist',
-            'Robotics Developer',
-            'Voice Agent Expert',
-            'GenAI Architect'
+            'Voice AI & SIP/VoIP Architect',
+            'Hybrid RAG & Agentic AI Lead',
+            'LLM Evaluation & MLOps Lead',
+            'Computer Vision & Robotics Engineer'
         ];
 
         let titleIndex = 0;
@@ -213,15 +119,15 @@ class Portfolio3D {
                 charIndex++;
             }
 
-            let typeSpeed = isDeleting ? 50 : 100;
+            let typeSpeed = isDeleting ? 40 : 85;
 
             if (!isDeleting && charIndex === currentTitle.length) {
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2200;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 titleIndex = (titleIndex + 1) % titles.length;
-                typeSpeed = 500; // Pause before next word
+                typeSpeed = 400;
             }
 
             setTimeout(type, typeSpeed);
@@ -231,21 +137,6 @@ class Portfolio3D {
     }
 }
 
-// Floating animation for elements
-const addFloatingAnimation = () => {
-    const floatingElements = document.querySelectorAll('.floating');
-
-    floatingElements.forEach((el, index) => {
-        const delay = index * 0.2;
-        const duration = 3 + Math.random() * 2;
-
-        el.style.animationDelay = `${delay}s`;
-        el.style.animationDuration = `${duration}s`;
-    });
-};
-
-// Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
     new Portfolio3D();
-    addFloatingAnimation();
 });

@@ -1,47 +1,35 @@
-# Fazeel Asghar's Portfolio
+# Fazeel Asghar — Lead AI Engineer Portfolio
 
-Welcome to my online portfolio! I am Fazeel Asghar, an enthusiastic IT student at Islamia University Bahawalpur with a passion for technology, machine learning, and space. This portfolio showcases my projects, skills, and professional journey.
+**Lead AI Engineer** with **5+ years** in applied machine learning, including taking production LLM systems from architecture to scale over the last two years: low-latency SIP/VoIP voice agents, hybrid RAG platforms, and tool-using agentic workflows.
 
-## About Me
+- **Location:** Lahore, Pakistan
+- **Email:** [fasghar40@gmail.com](mailto:fasghar40@gmail.com)
+- **LinkedIn:** [linkedin.com/in/fazeelasghar](https://www.linkedin.com/in/fazeelasghar/)
+- **GitHub:** [github.com/Fazeel-AIML](https://github.com/Fazeel-AIML)
+- **Kaggle:** [kaggle.com/fazeelasghar](https://www.kaggle.com/fazeelasghar)
+- **Hugging Face:** [huggingface.co/fasghar786](https://huggingface.co/fasghar786)
 
-I am dedicated to pursuing a Bachelor of Science in Information Technology, with a focus on Machine Learning, Deep Learning, IoT Projects, Python Programming, and Data Analysis. My journey in technology is driven by curiosity and a drive for innovation, especially in Space Technology.
+---
 
-### Key Interests
-- **Space Technology**
-- **Machine Learning & Deep Learning**
-- **Python Programming**
-- **IoT Projects**
+## Executive Highlights
 
-## Projects
+- **Lead AI Engineer @ 7 Kings Code LLC (Sep 2025 – Present):** Directs a 10-engineer AI team, owning architecture, evaluation release gates, tracing, and delivery across production voice, RAG, and computer vision platforms.
+- **Real-Time AI Sales Calling Agent ([aisaleagent.com](https://aisaleagent.com)):** Gemini Realtime over SIP/VoIP across 50+ languages, 100+ calls/day, 10+ CRMs, 7 VoIP providers, and 200–300 ms p95 latency under TCPA (US) and PECR/GDPR (UK) compliance.
+- **AI Recruitment Calling Agent ([airecruitmentagent.com](https://airecruitmentagent.com)) & Jobsshopper ([jobsshopper.com](https://jobsshopper.com)):** Connected to 5+ CRMs & ATS platforms, cutting candidate screening time by 40% across a 500-candidate batch and parsing 1,000 CVs in under 5 minutes.
+- **Enterprise Hybrid RAG Platform:** Dense + sparse retrieval with cross-encoder reranking over 150+ dynamic documents (Pinecone, Chroma), improving answer accuracy by 70–80% with LangSmith quality gates.
+- **Calibrated Gaze-Estimation System ([cortality.com](https://cortality.com)):** Custom gaze tracking and calibration for international advertisement-testing research.
+- **Prior Experience:**
+  - **AI Engineer @ 7 Kings Code LLC** *(May 2025 – Sep 2025)*
+  - **ML Engineer @ Grant Manpower Ltd** *(Sep 2024 – May 2025)*
+  - **Research Associate, AI Engineer @ University of the West of Scotland (UWS)** *(Jul 2024 – Aug 2024)*
+  - **Junior AI Engineer @ Safe-RH** *(Aug 2022 – May 2024)*
 
-Here are some of the key projects I've worked on, which you can find on my repos as well:
+---
 
-### 1. Smart Wheelchair Project
-A smart wheelchair prototype equipped with object detection and vital signs monitoring capabilities. The project integrates computer vision and machine learning to enhance mobility and safety.
+## Education & Certifications
 
-### 2. Tumor Detection Using Computer Vision
-Developed a model to detect tumors through computer vision, using threshold and contour detection techniques to identify and narrow down tumor regions.
-
-### 3. Skin Disease Classification
-Created a skin disease classification system using Convolutional Neural Networks (CNN) and TensorFlow. The project classifies melanoma and seborrheic dermatitis, with a front end developed using Django.
-
-### 4. FaceMesh Application
-Implemented FaceMesh using MediaPipe to analyze facial features.
-
-## Skills
-
-- **Programming Languages:** Python, C++
-- **Machine Learning & Deep Learning:** TensorFlow, CNN
-- **Web Development:** HTML5, CSS3, Django
-- **Computer Vision:** MediaPipe, OpenCV, Cvzone
-- **IoT Technologies:** Arduino, Raspberry Pi
-
-## Professional Experience
-
-- **Internship:** Completed an internship sponsored by the European Union under the Safe-RH Erasmus Plus program at the University of the West of Scotland, where I proposed a Smart Wheelchair project.
-
-## Contact
-
-Feel free to connect with me on [LinkedIn](www.linkedin.com/in/fazeelaiml) or reach out via email at fasghar40@gmail.com for any inquiries or collaborations.
-
-Thank you for visiting my portfolio!
+- **BS Information Technology** — Islamia University Bahawalpur, Pakistan *(CGPA: 3.80 / 4.00)*
+- **Certifications:**
+  - *Machine Learning Specialization* — DeepLearning.AI
+  - *AI Engineering Professional* — Packt
+  - *Machine Learning with Python* — IBM
